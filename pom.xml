@@ -84,6 +84,21 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.vaadin.addon</groupId>
+			<artifactId>vaadin-charts</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.lotsabackscatter</groupId>
+			<artifactId>vaadin-blueimp-gallery</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-client-compiler</artifactId>
+			<version>7.4.8</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -2,5 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/ImageGallery.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/InlineTextEditor.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/OptionalSelect.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/SparklineChart.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/data" charset="windows-1252" />
   </component>
 </project>

@@ -12,6 +12,7 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import org.peter.vaadin.component.InlineTextEditor;
 
 /**
  *
@@ -33,7 +34,10 @@ public class MyUI extends UI {
                 layout.addComponent(new Label("Thank you for clicking"));
             }
         });
+        InlineTextEditor editor = new InlineTextEditor("It is a test");
         layout.addComponent(button);
+        layout.addComponent(editor);
+
 
     }
 
