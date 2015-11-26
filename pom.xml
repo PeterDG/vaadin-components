@@ -297,6 +297,9 @@
 							<mainClass>JavaApiTesting</mainClass>
 						</manifest>
 					</archive>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
 				</configuration>
 			</plugin>
 
