@@ -68,6 +68,11 @@
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
           <element id="library" level="project" name="Maven: com.ibm.icu:icu4j:50.1.1" />
           <element id="library" level="project" name="Maven: com.vaadin:vaadin-client-compiler-deps:1.2.0" />
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: com.vaadin.tapio:googlemaps:1.0.1" />
+          <element id="library" level="project" name="Maven: com.github.branflake2267:gwt-maps-api:3.10.0-alpha-7" />
+          <element id="library" level="project" name="Maven: com.google.gwt.google-apis:gwt-ajaxloader:1.1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

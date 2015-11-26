@@ -96,5 +96,8 @@
     <orderEntry type="library" name="Maven: com.vaadin:vaadin-client-compiler-deps:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: com.vaadin.tapio:googlemaps:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.branflake2267:gwt-maps-api:3.10.0-alpha-7" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gwt.google-apis:gwt-ajaxloader:1.1.0" level="project" />
   </component>
 </module>

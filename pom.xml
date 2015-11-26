@@ -4,7 +4,7 @@
 
 	<groupId>org.peter.vaadin</groupId>
 	<artifactId>vaadin-components</artifactId>
-	<!--<packaging>war</packaging>-->
+	<packaging>war</packaging>
 	<version>1.0.0</version>
 	<name>vaadin-components</name>
 
@@ -103,6 +103,11 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin.tapio</groupId>
+			<artifactId>googlemaps</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 
