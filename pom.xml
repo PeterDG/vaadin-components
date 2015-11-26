@@ -23,6 +23,10 @@
 			<url>http://maven.vaadin.com/vaadin-addons</url>
 		</repository>
 		<repository>
+			<id>vaadin-addons2</id>
+			<url>http://vaadin.com/nexus/content/repositories/vaadin-addons</url>
+		</repository>
+		<repository>
 			<id>vaadin-snapshots</id>
 			<url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
 			<releases>
@@ -107,7 +111,7 @@
 		<dependency>
 			<groupId>com.vaadin.tapio</groupId>
 			<artifactId>googlemaps</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2</version>
 		</dependency>
 	</dependencies>
 
