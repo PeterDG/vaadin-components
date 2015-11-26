@@ -13,6 +13,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import org.peter.vaadin.component.InlineTextEditor;
+import org.peter.vaadin.component.applet.AppletIntegrationSampleUI;
 import org.peter.vaadin.component.chart.area.AreaSpline;
 import org.peter.vaadin.component.googlemaps.MapGoogle;
 
@@ -39,10 +40,13 @@ public class MyUI extends UI {
         InlineTextEditor editor = new InlineTextEditor("It is a test");
         AreaSpline areaSpline=new AreaSpline();
         MapGoogle mapGoogle = new MapGoogle();
+        AppletIntegrationSampleUI applet = new AppletIntegrationSampleUI();
         layout.addComponent(button);
         layout.addComponent(editor);
         layout.addComponent(areaSpline);
         layout.addComponent(mapGoogle);
+        layout.addComponent(applet);
+
 //        topGrossingMoviesChart = new TopGrossingMoviesChart();
 //::column and bar
 //        BarWithNegativeStack topGrossingMoviesChart = new BarWithNegativeStack();
@@ -140,7 +144,7 @@ public class MyUI extends UI {
 //::GoogleMaps
 //        MapGoogle topGrossingMoviesChart = new MapGoogle();
 //::Applets
-        //topGrossingMoviesChart = new AppletIntegrationSampleUI();
+//        AppletIntegrationSampleUI applet = new AppletIntegrationSampleUI();
 //::ui
 //        WeekCalendar topGrossingMoviesChart =new WeekCalendar();
 

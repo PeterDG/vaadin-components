@@ -7,5 +7,11 @@
     <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/OptionalSelect.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/component/SparklineChart.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/peter/vaadin/data" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/com.xj.anylogic.engine.al3d.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/com.xj.anylogic.engine.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/com.xj.anylogic.engine.nl.jar" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/lib" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/model.jnlp" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/VAADIN/applet/view3d.html" charset="windows-1252" />
   </component>
 </project>

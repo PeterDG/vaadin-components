@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp>
+	<information>
+		<title><![CDATA[view3d - Simulation]]></title>
+		<vendor>AnyLogic North America</vendor>
+		<homepage href="http://anylogic.com/"/>
+		<description><![CDATA[view3d - Simulation]]></description>
+		<description kind="short"><![CDATA[]]></description>
+		<offline-allowed/>
+	</information>
+
+	<resources>
+		<j2se href="http://java.sun.com/products/autodl/j2se" version="1.6+" max-heap-size="256m"/>
+		<property name="sun.java2d.noddraw" value="true"/>
+		<jar href="model.jar" main="true"/>
+		<jar href="com.xj.anylogic.engine.jar"/>
+		<jar href="com.xj.anylogic.engine.nl.jar"/>
+		<jar href="com.xj.anylogic.engine.al3d.jar"/>
+		<jar href="lib/aviatrix3d-all_2.0.0.jar"/>
+		<jar href="lib/j3d-org-elumens.jar"/>
+		<jar href="lib/j3d-org-geom-core.jar"/>
+		<jar href="lib/j3d-org-geom-hanim.jar"/>
+		<jar href="lib/j3d-org-geom-particle.jar"/>
+		<jar href="lib/j3d-org-geom-terrain.jar"/>
+		<jar href="lib/j3d-org-loader-3ds.jar"/>
+		<jar href="lib/j3d-org-loader-core.jar"/>
+		<jar href="lib/j3d-org-loader-dem.jar"/>
+		<jar href="lib/j3d-org-loader-stl.jar"/>
+		<jar href="lib/j3d-org-loader-vterrain.jar"/>
+		<jar href="lib/j3d-org-navigation.jar"/>
+		<jar href="lib/j3d-org-texture.jar"/>
+		<jar href="lib/j3d-org-util.jar"/>
+		<jar href="lib/javax.vecmath_1.5.0.jar"/>
+		<jar href="lib/uri.jar"/>
+		<jar href="lib/vlc_uri.jar"/>
+		<jar href="lib/xj3d-common_2.0.0.jar"/>
+		<jar href="lib/xj3d-config_2.0.0.jar"/>
+		<jar href="lib/xj3d-core_2.0.0.jar"/>
+		<jar href="lib/xj3d-device_2.0.0.jar"/>
+		<jar href="lib/xj3d-eai_2.0.0.jar"/>
+		<jar href="lib/xj3d-ecmascript_2.0.0.jar"/>
+		<jar href="lib/xj3d-external-sai-concrete_2.0.0.jar"/>
+		<jar href="lib/xj3d-external-sai_2.0.0.jar"/>
+		<jar href="lib/xj3d-images_2.0.0.jar"/>
+		<jar href="lib/xj3d-java-sai-concrete_2.0.0.jar"/>
+		<jar href="lib/xj3d-java-sai_2.0.0.jar"/>
+		<jar href="lib/xj3d-jaxp_2.0.0.jar"/>
+		<jar href="lib/xj3d-jsai_2.0.0.jar"/>
+		<jar href="lib/xj3d-net_2.0.0.jar"/>
+		<jar href="lib/xj3d-norender_2.0.0.jar"/>
+		<jar href="lib/xj3d-ogl_2.0.0.jar"/>
+		<jar href="lib/xj3d-parser_2.0.0.jar"/>
+		<jar href="lib/xj3d-render_2.0.0.jar"/>
+		<jar href="lib/xj3d-runtime_2.0.0.jar"/>
+		<jar href="lib/xj3d-sai-concrete_2.0.0.jar"/>
+		<jar href="lib/xj3d-sai_2.0.0.jar"/>
+		<jar href="lib/xj3d-sav_2.0.0.jar"/>
+		<jar href="lib/xj3d-script-base_2.0.0.jar"/>
+		<jar href="lib/xj3d-xml-util_2.0.0.jar"/>
+		<jar href="lib/xj3d-xml_2.0.0.jar"/>
+		<jar href="lib/ProcessModelingLibrary.jar"/>
+		<extension name="jogl-all-awt" href="lib/jogl/jogl.jnlp"/>
+	</resources>
+
+	<applet-desc name="view3d - Simulation"
+		main-class="view3d.Simulation$Applet"
+		width="1907"
+		height="998">
+	</applet-desc>
+</jnlp>
