@@ -314,17 +314,17 @@
 							<mainClass>JavaApiTesting</mainClass>
 						</manifest>
 						<manifestEntries>
-							<!-- Package format version - do not change -->
-							<Vaadin-Package-Version>1</Vaadin-Package-Version>
+							<!--&lt;!&ndash; Package format version - do not change &ndash;&gt;-->
+							<!--<Vaadin-Package-Version>1</Vaadin-Package-Version>-->
 
-							<!-- Add-on specific fields to update -->
-							<AdVaaLicen>cval</AdVaaLicen>
-							<AdVaaName>peter-vaadin-applet</AdVaaName>
-							<AdVaaPkg>com.peter.vaadin.components.others.applet.client</AdVaaPkg>
+							<!--&lt;!&ndash; Add-on specific fields to update &ndash;&gt;-->
+							<!--<AdVaaLicen>cval</AdVaaLicen>-->
+							<!--<AdVaaName>peter-vaadin-applet</AdVaaName>-->
+							<!--<AdVaaPkg>com.peter.vaadin.components.others.applet.client</AdVaaPkg>-->
 
-							<!-- Implementation-Title and Implementation-Version
-                                come from the POM by default -->
-							<Implementation-Title>Vaadin Applet</Implementation-Title>
+							<!--&lt;!&ndash; Implementation-Title and Implementation-Version-->
+                                <!--come from the POM by default &ndash;&gt;-->
+							<!--<Implementation-Title>Vaadin Applet</Implementation-Title>-->
 
 							<!-- Comma-separated list of widgetsets in the
                                 package -->
