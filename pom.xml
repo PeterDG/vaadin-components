@@ -315,7 +315,7 @@
 						</manifest>
 						<manifestEntries>
 							<!--&lt;!&ndash; Package format version - do not change &ndash;&gt;-->
-							<!--<Vaadin-Package-Version>1</Vaadin-Package-Version>-->
+							<Vaadin-Package-Version>1</Vaadin-Package-Version>
 
 							<!--&lt;!&ndash; Add-on specific fields to update &ndash;&gt;-->
 							<!--<AdVaaLicen>cval</AdVaaLicen>-->
