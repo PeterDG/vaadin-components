@@ -21,13 +21,7 @@
     <!-- <set-property name="user.agent" value="gecko"/> -->
 
 
-    
-
-    
-
     <inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
-
-    
 
     <inherits name="com.vaadin.tapio.googlemaps.Widgetset" />
 
