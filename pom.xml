@@ -15,6 +15,7 @@
 		<project.source.version>1.8</project.source.version>
 		<project.target.version>1.8</project.target.version>
 		<project.encoding>UTF-8</project.encoding>
+		<Vaadin-License-Title>Apache License 2.0</Vaadin-License-Title>
 	</properties>
 
 	<repositories>
@@ -316,7 +317,7 @@
 						<manifestEntries>
 							<!--&lt;!&ndash; Package format version - do not change &ndash;&gt;-->
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
-
+							<Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>
 							<!--&lt;!&ndash; Add-on specific fields to update &ndash;&gt;-->
 							<!--<AdVaaLicen>cval</AdVaaLicen>-->
 							<!--<AdVaaName>peter-vaadin-applet</AdVaaName>-->
