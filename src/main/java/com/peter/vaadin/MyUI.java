@@ -2,9 +2,12 @@ package com.peter.vaadin;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.peter.vaadin.components.others.SubWindow;
+import com.peter.vaadin.components.others.mycomponent.MyComponent;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
+import com.vaadin.server.ThemeResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
@@ -21,7 +24,7 @@ import com.peter.vaadin.components.vaadin.googlemaps.MapGoogle;
  *
  */
 @Theme("mytheme")
-@Widgetset("com.peter.vaadin.MyAppWidgetset")
+@Widgetset("com.peter.vaadin.Widgetset")
 public class MyUI extends UI {
 
     @Override
@@ -41,11 +44,17 @@ public class MyUI extends UI {
         AreaSpline areaSpline=new AreaSpline();
         MapGoogle mapGoogle = new MapGoogle();
         AppletIntegrationSampleUI applet = new AppletIntegrationSampleUI();
+        SubWindow subWindow =new SubWindow();
+        MyComponent myComponent =new MyComponent();
+        myComponent.setMyIcon(new ThemeResource("img/pig-128px.png"));
         layout.addComponent(button);
         layout.addComponent(editor);
         layout.addComponent(areaSpline);
         layout.addComponent(mapGoogle);
         layout.addComponent(applet);
+        layout.addComponent(myComponent);
+        this.addWindow(subWindow);
+
 
 //        topGrossingMoviesChart = new TopGrossingMoviesChart();
 //::column and bar
@@ -147,6 +156,7 @@ public class MyUI extends UI {
 //        AppletIntegrationSampleUI applet = new AppletIntegrationSampleUI();
 //::ui
 //        WeekCalendar topGrossingMoviesChart =new WeekCalendar();
+
 
     }
 

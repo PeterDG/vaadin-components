@@ -21,15 +21,13 @@
     <!-- <set-property name="user.agent" value="gecko"/> -->
 
 
+    <inherits name="com.peter.vaadin.Widgetset" />
+
     <inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
+
+    <inherits name="com.peter.vaadin.components.others.mycomponent.Widgetset" />
 
     <inherits name="com.vaadin.tapio.googlemaps.Widgetset" />
 
     <inherits name="com.vaadin.addon.charts.Widgetset" />
-
-    
-
-    
-
-    <inherits name="com.peter.vaadin.MyAppWidgetset" />
 </module>

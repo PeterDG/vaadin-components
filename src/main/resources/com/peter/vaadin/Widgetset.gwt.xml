@@ -4,11 +4,13 @@
 <module>
     <inherits name="com.vaadin.DefaultWidgetSet"/>
 
+    <inherits name="com.peter.vaadin.components.others.applet.Widgetset" />
+
     <inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
 
-    <inherits name="com.vaadin.addon.charts.Widgetset" />
+    <inherits name="com.peter.vaadin.components.others.mycomponent.Widgetset" />
 
     <inherits name="com.vaadin.tapio.googlemaps.Widgetset" />
 
-    <inherits name="com.peter.vaadin.components.others.applet.AppletintegrationWidgetset" />
+    <inherits name="com.vaadin.addon.charts.Widgetset" />
 </module>

@@ -1,0 +1,14 @@
+<servlet>
+    <servlet-name>My Vaadin App</servlet-name>
+    <servlet-class>com.vaadin.server.VaadinServlet</servlet-class>
+    <init-param>
+        <description>Vaadin Components</description>
+        <param-name>UI</param-name>
+        <param-value>com.peter.vaadin.MyUI</param-value>
+    </init-param>
+    <init-param>
+        <param-name>widgetset</param-name>
+        <param-value>com.peter.vaadin.Widgetset</param-value>
+        <param-value>com.peter.vaadin.components.others.mycomponent.Widgetset</param-value>
+    </init-param>
+</servlet>

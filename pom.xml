@@ -292,79 +292,12 @@
 
 	<!--</build>-->
 
-	<!--<build>-->
-		<!--<plugins>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-compiler-plugin</artifactId>-->
-				<!--<version>3.3</version>-->
-				<!--<configuration>-->
-					<!--<source>1.8</source>-->
-					<!--<target>1.8</target>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-jar-plugin</artifactId>-->
-				<!--<configuration>-->
-					<!--<archive>-->
-						<!--<manifest>-->
-							<!--<addClasspath>true</addClasspath>-->
-							<!--<classpathPrefix>dependency-jars/</classpathPrefix>-->
-							<!--<mainClass>JavaApiTesting</mainClass>-->
-						<!--</manifest>-->
-						<!--<manifestEntries>-->
-							<!--&lt;!&ndash;&lt;!&ndash; Package format version - do not change &ndash;&gt;&ndash;&gt;-->
-							<!--<Vaadin-Package-Version>1</Vaadin-Package-Version>-->
-							<!--<Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>-->
-							<!--&lt;!&ndash;&lt;!&ndash; Add-on specific fields to update &ndash;&gt;&ndash;&gt;-->
-							<!--&lt;!&ndash;<AdVaaLicen>cval</AdVaaLicen>&ndash;&gt;-->
-							<!--&lt;!&ndash;<AdVaaName>peter-vaadin-applet</AdVaaName>&ndash;&gt;-->
-							<!--&lt;!&ndash;<AdVaaPkg>com.peter.vaadin.components.others.applet.client</AdVaaPkg>&ndash;&gt;-->
-
-							<!--&lt;!&ndash;&lt;!&ndash; Implementation-Title and Implementation-Version&ndash;&gt;-->
-                                <!--&lt;!&ndash;come from the POM by default &ndash;&gt;&ndash;&gt;-->
-							<!--&lt;!&ndash;<Implementation-Title>Vaadin Applet</Implementation-Title>&ndash;&gt;-->
-
-							<!--&lt;!&ndash; Comma-separated list of widgetsets in the-->
-                                <!--package &ndash;&gt;-->
-							<!--<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.AppletintegrationWidgetset</Vaadin-Widgetsets>-->
-						<!--</manifestEntries>-->
-					<!--</archive>-->
-					<!--&lt;!&ndash;<includes>&ndash;&gt;-->
-						<!--&lt;!&ndash;<include>**/*.xml</include>&ndash;&gt;-->
-					<!--&lt;!&ndash;</includes>&ndash;&gt;-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-dependency-plugin</artifactId>-->
-				<!--<version>2.5.1</version>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>copy-dependencies</id>-->
-						<!--<phase>package</phase>-->
-						<!--<goals>-->
-							<!--<goal>copy-dependencies</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
-
-		<!--</plugins>-->
-	<!--</build>-->
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.3</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
@@ -373,69 +306,26 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.3.1</version>
 				<configuration>
 					<archive>
-						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>dependency-jars/</classpathPrefix>
+							<mainClass>JavaApiTesting</mainClass>
+						</manifest>
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<addDefaultImplementationEntries>true
 							</addDefaultImplementationEntries>
 						</manifest>
 						<manifestEntries>
+
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
-							<Vaadin-License-Title>${Vaadin-License-Title}</Vaadin-License-Title>
-							<Vaadin-Widgetsets>
-								com.peter.vaadin.components.others.applet.AppletintegrationWidgetset
-							</Vaadin-Widgetsets>
+							<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.Widgetset,
+								               com.peter.vaadin.components.others.mycomponent.Widgetset</Vaadin-Widgetsets>
 						</manifestEntries>
 					</archive>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9</version>
-				<executions>
-					<execution>
-						<id>attach-javadoc</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<version>2.2.1</version>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
-				<configuration>
-					<appendAssemblyId>false</appendAssemblyId>
-					<descriptors>
-						<descriptor>assembly/assembly.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<phase>install</phase>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 		<resources>
