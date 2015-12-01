@@ -5,11 +5,15 @@ import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
-import java.util.Calendar;
-import java.util.Random;
-import java.util.TimeZone;
+import java.util.List;
 
 public class UtcTimeDataAndTooltipDateFormat extends AbstractVaadinChartExample {
+
+    public List<DataSeries> dataSeriesList;
+
+    public UtcTimeDataAndTooltipDateFormat(List<DataSeries> dataSeriesList) {
+        this.dataSeriesList = dataSeriesList;
+    }
 
     @Override
     public String getDescription() {
@@ -30,29 +34,9 @@ public class UtcTimeDataAndTooltipDateFormat extends AbstractVaadinChartExample 
 
         // Finnish convention for date formatting
         configuration.getTooltip().setxDateFormat("%d.%m. %Y %H:%M");
-
-        // This test uses UTC time stamps, this way chart is independent about
-        // execution environment, unlike when using Date
-        TimeZone timeZone = TimeZone.getTimeZone("GMT");
-        Calendar c = Calendar.getInstance(timeZone);
-        c.set(Calendar.MILLISECOND, 0);
-        c.set(Calendar.SECOND, 0);
-        c.set(Calendar.MINUTE, 0);
-        c.set(Calendar.HOUR_OF_DAY, 12);
-        c.set(2013, 2, 11);
-
-        DataSeries dataSeries = new DataSeries();
-        Number[] values = new Number[] { 29.9, 71.5, 106.4, 129.2, 144.0,
-                176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 };
-        Random r = new Random(0);
-        for (Number number : values) {
-            c.add(Calendar.MINUTE, r.nextInt(30));
-            DataSeriesItem item = new DataSeriesItem(c.getTimeInMillis(),
-                    number);
-            dataSeries.add(item);
+        for(DataSeries series: dataSeriesList){
+            configuration.addSeries(series);
         }
-
-        configuration.addSeries(dataSeries);
 
         chart.drawChart(configuration);
         return chart;
