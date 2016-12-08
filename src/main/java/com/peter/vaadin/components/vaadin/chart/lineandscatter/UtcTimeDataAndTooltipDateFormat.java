@@ -49,12 +49,20 @@ public class UtcTimeDataAndTooltipDateFormat extends AbstractVaadinChartExample 
         }
     }
 
-    public void update(List<DataSeries> dataSeriesList){
-        configuration.setSeries(new ArrayList<Series>());
+    public void update(List<DataSeries> dataSeriesList, boolean clean){
+        if(clean) configuration.setSeries(new ArrayList<Series>());
         setDataSeriesList(dataSeriesList);
         chart.drawChart(configuration);
 //        getUI().access(() ->
 //                this.dataSeriesList=dataSeriesList);
     }
 
+    public void setSize(String height,String width){
+        chart.setHeight(height);
+        chart.setWidth(width);
+    }
+
+    public Configuration getConfiguration(){
+        return configuration;
+    }
 }
