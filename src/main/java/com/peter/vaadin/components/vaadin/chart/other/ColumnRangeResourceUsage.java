@@ -1,12 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.util.Calendar;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabelsRange;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsColumnrange;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
 public class ColumnRangeResourceUsage extends AbstractVaadinChartExample {
@@ -37,9 +46,9 @@ public class ColumnRangeResourceUsage extends AbstractVaadinChartExample {
         tooltip.setFormatter("this.series.name +': '+ Highcharts.dateFormat('%H:%M', this.point.low) + ' - ' + Highcharts.dateFormat('%H:%M', this.point.high)");
         conf.setTooltip(tooltip);
 
-        PlotOptionsColumnRange columnRange = new PlotOptionsColumnRange();
+        PlotOptionsColumnrange columnRange = new PlotOptionsColumnrange();
         columnRange.setGrouping(false);
-        Labels dataLabels = new Labels(true);
+        DataLabelsRange dataLabels = new DataLabelsRange(true);
         dataLabels
                 .setFormatter("this.y == this.point.low ? '' : this.series.name");
         dataLabels.setInside(true);
@@ -54,11 +63,11 @@ public class ColumnRangeResourceUsage extends AbstractVaadinChartExample {
 
         DataSeries a = new DataSeries();
         a.setName("Team Alpha");
-        PlotOptionsColumnRange o = new PlotOptionsColumnRange();
+        PlotOptionsColumnrange o = new PlotOptionsColumnrange();
         o.setColor(new SolidColor(255, 60, 125, 0.8));
         a.setPlotOptions(o);
         DataSeries b = new DataSeries();
-        o = new PlotOptionsColumnRange();
+        o = new PlotOptionsColumnrange();
         o.setColor(new SolidColor(60, 125, 255, 0.8));
         b.setPlotOptions(o);
         b.setName("Team Beta");

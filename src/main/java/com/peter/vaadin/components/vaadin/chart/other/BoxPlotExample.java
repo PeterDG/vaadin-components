@@ -1,12 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.BoxPlotItem;
+import com.vaadin.addon.charts.model.DashStyle;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.Label;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.PlotLine;
+import com.vaadin.addon.charts.model.PlotOptionsBoxplot;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.model.style.Style;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Component;
 
@@ -43,9 +52,9 @@ public class BoxPlotExample extends AbstractVaadinChartExample {
         plotLine.setColor(new SolidColor("red"));
         plotLine.setValue(932);
         plotLine.setWidth(1);
-        plotLine.setzIndex(0);
+        plotLine.setZIndex(0);
         plotLine.setDashStyle(DashStyle.DASHDOT);
-        PlotBandLabel label = new PlotBandLabel("Theoretical mean: 932");
+        Label label = new Label("Theoretical mean: 932");
         label.setAlign(HorizontalAlign.CENTER);
         Style style = new Style();
         style.setColor(new SolidColor("gray"));
@@ -55,9 +64,9 @@ public class BoxPlotExample extends AbstractVaadinChartExample {
         plotLine2.setColor(new SolidColor("blue"));
         plotLine2.setValue(800);
         plotLine2.setWidth(1);
-        plotLine2.setzIndex(500);
+        plotLine2.setZIndex(500);
         plotLine2.setDashStyle(DashStyle.SHORTDASHDOTDOT);
-        PlotBandLabel label2 = new PlotBandLabel("Second plotline: 800");
+        Label label2 = new Label("Second plotline: 800");
         label2.setAlign(HorizontalAlign.CENTER);
         Style style2 = new Style();
         style2.setColor(new SolidColor("gray"));
@@ -106,8 +115,8 @@ public class BoxPlotExample extends AbstractVaadinChartExample {
         });
     }
 
-    private PlotOptionsBoxPlot getPlotBoxOptions() {
-        PlotOptionsBoxPlot options = new PlotOptionsBoxPlot();
+    private PlotOptionsBoxplot getPlotBoxOptions() {
+        PlotOptionsBoxplot options = new PlotOptionsBoxplot();
 
         if (useCustomStyles.getValue()) {
             // optional styling
@@ -119,7 +128,7 @@ public class BoxPlotExample extends AbstractVaadinChartExample {
             options.setStemWidth(4);
 
             options.setWhiskerColor(new SolidColor("magenta"));
-            options.setWhiskerLength(70);
+            options.setWhiskerLength("70");
             options.setWhiskerWidth(5);
         }
 

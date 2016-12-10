@@ -1,8 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsSeries;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -31,7 +40,7 @@ public class StackedBar extends AbstractVaadinChartExample {
         conf.addyAxis(y);
 
         Legend legend = new Legend();
-        legend.setBackgroundColor("#FFFFFF");
+        legend.setBackgroundColor(new SolidColor("#FFFFFF"));
         legend.setReversed(true);
 
         Tooltip tooltip = new Tooltip();

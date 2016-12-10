@@ -1,8 +1,14 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 public class BasicLineWithDataLabels extends AbstractVaadinChartExample {
@@ -27,8 +33,8 @@ public class BasicLineWithDataLabels extends AbstractVaadinChartExample {
         configuration.getxAxis().setCategories("Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Temperature (°C)"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Temperature (°C)"));
 
         configuration
                 .getTooltip()
@@ -36,7 +42,7 @@ public class BasicLineWithDataLabels extends AbstractVaadinChartExample {
                         "'<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C'");
 
         PlotOptionsLine plotOptions = new PlotOptionsLine();
-        plotOptions.setDataLabels(new Labels(true));
+        plotOptions.setDataLabels(new DataLabels(true));
         plotOptions.setEnableMouseTracking(false);
         configuration.setPlotOptions(plotOptions);
 

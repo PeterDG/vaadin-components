@@ -1,13 +1,30 @@
 package com.peter.vaadin.components.vaadin.chart.dynamic;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.vaadin.addon.charts.*;
-import com.vaadin.addon.charts.model.*;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.vaadin.addon.charts.Chart;
+import com.vaadin.addon.charts.ChartClickEvent;
+import com.vaadin.addon.charts.ChartClickListener;
+import com.vaadin.addon.charts.PointClickEvent;
+import com.vaadin.addon.charts.PointClickListener;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.PlotLine;
+import com.vaadin.addon.charts.model.PlotOptionsSeries;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
@@ -40,12 +57,12 @@ public class ClickToAddPoint extends AbstractVaadinChartExample {
                 .setText(
                         "Click the plot area to add a point. Click a point to remove it.");
 
-        Axis xAxis = configuration.getxAxis();
+        XAxis xAxis = configuration.getxAxis();
         xAxis.setMinPadding(0.2);
         xAxis.setMaxPadding(0.2);
 
         YAxis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Value"));
+        yAxis.setTitle(new AxisTitle("Value"));
         yAxis.setPlotLines(new PlotLine(0, 1, new SolidColor("#808080")));
         yAxis.setMinPadding(0.2);
         yAxis.setMaxPadding(0.2);
@@ -75,7 +92,6 @@ public class ClickToAddPoint extends AbstractVaadinChartExample {
                 eventDetails.setValue(createEventString(event));
             }
         });
-
         chart.addPointClickListener(new PointClickListener() {
 
             @Override
@@ -95,9 +111,21 @@ public class ClickToAddPoint extends AbstractVaadinChartExample {
         return verticalLayout;
     }
 
-    private String createEventString(Component.Event event) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(event);
+    private String createEventString(Event event) {
+        ObjectMapper mapper = new ObjectMapper()
+                .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+                .enable(SerializationFeature.INDENT_OUTPUT)
+                .setVisibility(PropertyAccessor.ALL,
+                        JsonAutoDetect.Visibility.NONE)
+                .setVisibility(PropertyAccessor.FIELD,
+                        JsonAutoDetect.Visibility.ANY);
+
+        try {
+            return mapper.writeValueAsString(event);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
     @Override

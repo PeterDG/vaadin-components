@@ -1,13 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsGauge;
+import com.vaadin.addon.charts.model.SeriesTooltip;
+import com.vaadin.addon.charts.model.TickPosition;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
-
-import java.util.Random;
 
 public class GaugeWithDualAxes extends AbstractVaadinChartExample {
 
@@ -41,9 +49,12 @@ public class GaugeWithDualAxes extends AbstractVaadinChartExample {
         yAxis.setMinorTickColor(new SolidColor("#339"));
         yAxis.setOffset(-25);
         yAxis.setLineWidth(2);
-        yAxis.setLabels(new Labels());
-        yAxis.getLabels().setDistance(-20);
-        yAxis.getLabels().setRotationPerpendicular();
+        Labels labels = new Labels();
+        labels.setDistance(-20);
+        labels.setRotationPerpendicular();
+        labels.setRotation("auto");
+        yAxis.setLabels(labels);
+
         yAxis.setTickLength(5);
         yAxis.setMinorTickLength(5);
         yAxis.setEndOnTick(false);
@@ -57,9 +68,10 @@ public class GaugeWithDualAxes extends AbstractVaadinChartExample {
         yAxis2.setMinorTickColor(new SolidColor("#933"));
         yAxis2.setOffset(-20);
         yAxis2.setLineWidth(2);
-        yAxis2.setLabels(new Labels());
-        yAxis2.getLabels().setDistance(12);
-        yAxis2.getLabels().setRotationPerpendicular();
+        labels = new Labels();
+        labels.setDistance(12);
+        labels.setRotationPerpendicular();
+        yAxis2.setLabels(labels);
         yAxis2.setTickLength(5);
         yAxis2.setMinorTickLength(5);
         yAxis2.setEndOnTick(false);
@@ -72,7 +84,7 @@ public class GaugeWithDualAxes extends AbstractVaadinChartExample {
         final ListSeries series = new ListSeries("Speed", 80);
 
         PlotOptionsGauge plotOptionsGauge = new PlotOptionsGauge();
-        plotOptionsGauge.setDataLabels(new Labels());
+        plotOptionsGauge.setDataLabels(new DataLabels());
         plotOptionsGauge
                 .getDataLabels()
                 .setFormatter(
@@ -81,6 +93,7 @@ public class GaugeWithDualAxes extends AbstractVaadinChartExample {
         gradient.addColorStop(0, new SolidColor("#DDD"));
         gradient.addColorStop(1, new SolidColor("#FFF"));
         plotOptionsGauge.getDataLabels().setBackgroundColor(gradient);
+        plotOptionsGauge.setTooltip(new SeriesTooltip());
         plotOptionsGauge.getTooltip().setValueSuffix(" km/h");
         series.setPlotOptions(plotOptionsGauge);
 
@@ -102,5 +115,4 @@ public class GaugeWithDualAxes extends AbstractVaadinChartExample {
 
         return chart;
     }
-
 }

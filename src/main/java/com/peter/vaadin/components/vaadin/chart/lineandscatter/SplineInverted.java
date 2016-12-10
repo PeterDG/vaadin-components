@@ -1,8 +1,18 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 public class SplineInverted extends AbstractVaadinChartExample {
@@ -25,9 +35,9 @@ public class SplineInverted extends AbstractVaadinChartExample {
         configuration.getSubTitle().setText(
                 "According to the Standard Atmosphere Model");
 
-        Axis xAxis = configuration.getxAxis();
+        XAxis xAxis = configuration.getxAxis();
         xAxis.setReversed(false);
-        xAxis.setTitle(new Title("Altitude"));
+        xAxis.setTitle(new AxisTitle("Altitude"));
         Labels labels = new Labels();
         labels.setFormatter("this.value + 'km'");
         labels.setEnabled(true);
@@ -35,10 +45,10 @@ public class SplineInverted extends AbstractVaadinChartExample {
         xAxis.setMaxPadding(0.05);
         xAxis.setShowLastLabel(true);
 
-        Axis yAxis = configuration.getyAxis();
+        YAxis yAxis = configuration.getyAxis();
         yAxis.setLineWidth(2);
-        yAxis.setTitle(new Title("Temperature"));
-        yAxis.getTitle().setVerticalAlign(VerticalAlign.HIGH);
+        yAxis.setTitle(new AxisTitle("Temperature"));
+        yAxis.getTitle().setAlign(VerticalAlign.MIDDLE);
 
         Labels labelsy = new Labels();
         labelsy.setEnabled(true);

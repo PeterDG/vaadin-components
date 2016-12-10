@@ -1,8 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Background;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Pane;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.PlotOptionsSeries;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -19,7 +30,7 @@ public class PolarChart extends AbstractVaadinChartExample {
 
         Configuration conf = chart.getConfiguration();
         conf.getChart().setPolar(true);
-        conf.setTitle("Highcharts Polar Chart");
+        conf.setTitle("Polar Chart");
 
         Pane pane = new Pane(0, 360);
         conf.addPane(pane);
@@ -29,7 +40,9 @@ public class PolarChart extends AbstractVaadinChartExample {
         axis.setTickInterval(45);
         axis.setMin(0);
         axis.setMax(360);
-        axis.getLabels().setFormatter("function() {return this.value + '°';}");
+        Labels labels = new Labels();
+        labels.setFormatter("function() {return this.value + '°';}");
+        axis.setLabels(labels);
         YAxis yaxs = new YAxis();
         yaxs.setMin(0);
         conf.addxAxis(axis);
@@ -42,8 +55,7 @@ public class PolarChart extends AbstractVaadinChartExample {
         column.setPointPadding(0);
         column.setGroupPadding(0);
 
-        conf.setPlotOptions(series);
-        conf.setPlotOptions(column);
+        conf.setPlotOptions(series, column);
 
         ListSeries col = new ListSeries(8, 7, 6, 5, 4, 3, 2, 1);
         ListSeries line = new ListSeries(1, 2, 3, 4, 5, 6, 7, 8);

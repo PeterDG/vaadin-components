@@ -1,9 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.HeatSeries;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.PlotOptionsHeatmap;
+import com.vaadin.addon.charts.model.SeriesTooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 public class HeatMapExample extends AbstractVaadinChartExample {
@@ -33,10 +41,10 @@ public class HeatMapExample extends AbstractVaadinChartExample {
 
         config.getColorAxis().setMin(0);
         config.getColorAxis().setMinColor(SolidColor.WHITE);
-        config.getColorAxis().setMaxColor((SolidColor) getThemeColors()[0]);
+        config.getColorAxis().setMaxColor(getThemeColors()[0]);
 
         config.getLegend().setLayout(LayoutDirection.VERTICAL);
-        config.getLegend().setHorizontalAlign(HorizontalAlign.RIGHT);
+        config.getLegend().setAlign(HorizontalAlign.RIGHT);
         config.getLegend().setMargin(0);
         config.getLegend().setVerticalAlign(VerticalAlign.TOP);
         config.getLegend().setY(25);
@@ -44,15 +52,15 @@ public class HeatMapExample extends AbstractVaadinChartExample {
 
         HeatSeries rs = new HeatSeries("Sales per employee", getRawData());
 
-        PlotOptionsHeatMap plotOptionsHeatMap = new PlotOptionsHeatMap();
-        plotOptionsHeatMap.setDataLabels(new Labels());
-        plotOptionsHeatMap.getDataLabels().setEnabled(true);
+        PlotOptionsHeatmap plotOptionsHeatmap = new PlotOptionsHeatmap();
+        plotOptionsHeatmap.setDataLabels(new DataLabels());
+        plotOptionsHeatmap.getDataLabels().setEnabled(true);
 
-        Tooltip tooltip = new Tooltip();
+        SeriesTooltip tooltip = new SeriesTooltip();
         tooltip.setHeaderFormat("{series.name}<br/>");
         tooltip.setPointFormat("Amount: <b>{point.value}</b> ");
-        plotOptionsHeatMap.setTooltip(tooltip);
-        config.setPlotOptions(plotOptionsHeatMap);
+        plotOptionsHeatmap.setTooltip(tooltip);
+        config.setPlotOptions(plotOptionsHeatmap);
 
         config.setSeries(rs);
 
@@ -62,12 +70,12 @@ public class HeatMapExample extends AbstractVaadinChartExample {
     }
 
     /**
-     * Raw data to the heatmap chart, as in highcharts.org demo.
-     * 
+     * Raw data to the heatmap chart
+     *
      * @return Array of arrays of numbers.
      */
     private Number[][] getRawData() {
-        return new Number[][] { { 0, 0, 10 }, { 0, 1, 19 }, { 0, 2, 8 },
+        return new Number[][] { { 0, 0, 0 }, { 0, 1, 19 }, { 0, 2, 8 },
                 { 0, 3, 24 }, { 0, 4, 67 }, { 1, 0, 92 }, { 1, 1, 58 },
                 { 1, 2, 78 }, { 1, 3, 117 }, { 1, 4, 48 }, { 2, 0, 35 },
                 { 2, 1, 15 }, { 2, 2, 123 }, { 2, 3, 64 }, { 2, 4, 52 },

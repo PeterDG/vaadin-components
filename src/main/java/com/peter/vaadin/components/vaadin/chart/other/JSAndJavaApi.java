@@ -1,9 +1,9 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.addon.charts.model.Configuration;
 import com.vaadin.addon.charts.model.ListSeries;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class JSAndJavaApi extends AbstractVaadinChartExample {
 
     @Override
     public String getDescription() {
-        return "Chart configured with both Highcharts JS notation and Java API. ";
+        return "Chart configured with both JSON notation and Java API. ";
     }
 
     @Override

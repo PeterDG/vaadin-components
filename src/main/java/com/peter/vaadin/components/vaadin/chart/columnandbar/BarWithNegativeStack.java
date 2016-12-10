@@ -1,8 +1,16 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsSeries;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -42,7 +50,7 @@ public class BarWithNegativeStack extends AbstractVaadinChartExample {
         YAxis y = new YAxis();
         y.setMin(-4000000);
         y.setMax(4000000);
-        y.setTitle(new Title(""));
+        y.setTitle(new AxisTitle(""));
         conf.addyAxis(y);
 
         PlotOptionsSeries plot = new PlotOptionsSeries();

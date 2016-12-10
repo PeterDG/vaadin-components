@@ -1,13 +1,26 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Series;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Subtitle;
+import com.vaadin.addon.charts.model.TickmarkPlacement;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
 public class StackedArea extends AbstractVaadinChartExample {
@@ -28,7 +41,7 @@ public class StackedArea extends AbstractVaadinChartExample {
 
         conf.setTitle(new Title(
                 "Historic and Estimated Worldwide Population Growth by Region"));
-        conf.setSubTitle(new SubTitle("Source: Wikipedia.org"));
+        conf.setSubTitle(new Subtitle("Source: Wikipedia.org"));
 
         XAxis xAxis = new XAxis();
         xAxis.setTickmarkPlacement(TickmarkPlacement.ON);
@@ -37,7 +50,7 @@ public class StackedArea extends AbstractVaadinChartExample {
         conf.addxAxis(xAxis);
 
         YAxis yAxis = new YAxis();
-        yAxis.setTitle(new Title("Billions"));
+        yAxis.setTitle(new AxisTitle("Billions"));
         Labels labels = new Labels();
         labels.setFormatter("this.value / 1000");
         yAxis.setLabels(labels);

@@ -1,20 +1,30 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.ChartOptions;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.DateTimeLabelFormats;
+import com.vaadin.addon.charts.model.Lang;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @SkipFromDemo
 @SuppressWarnings({ "serial" })
@@ -65,20 +75,19 @@ public class TimeDataWithIrregularIntervalsAndLocalizedTexts extends
         configuration.getxAxis().setType(AxisType.DATETIME);
         configuration.getxAxis().setDateTimeLabelFormats(
                 new DateTimeLabelFormats());
-        // configuration.getxAxis().getDateTimeLabelFormats().setMonth("%B");
+        configuration.getxAxis().getDateTimeLabelFormats().setMonth("%B");
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Lumen syvyys (m)"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Lumen syvyys (m)"));
         yAxis.setMin(0);
 
         DataSeries ls = new DataSeries();
-        ls.setPlotOptions(new PlotOptionsSpline());
-        ls.getPlotOptions().setDataLabels(new Labels(true));
-        ls.getPlotOptions().setEnableMouseTracking(false);
-        ls.getPlotOptions()
-                .getDataLabels()
-                .setFormatter(
-                        "return Highcharts.dateFormat('%a %d %B',this.x);");
+        PlotOptionsSpline plotOptionsSpline = new PlotOptionsSpline();
+        plotOptionsSpline.setDataLabels(new DataLabels(true));
+        plotOptionsSpline.setEnableMouseTracking(false);
+        plotOptionsSpline.getDataLabels().setFormatter(
+                "return Highcharts.dateFormat('%a %d %B',this.x);");
+        ls.setPlotOptions(plotOptionsSpline);
 
         ls.setName("Talvi 2009-2010");
         Object[][] data3 = getData3();
@@ -125,7 +134,7 @@ public class TimeDataWithIrregularIntervalsAndLocalizedTexts extends
 
     /**
      * Helper method to convert Date string YYYY,MM,dd to Date
-     * 
+     *
      * @param dateString
      * @return
      */

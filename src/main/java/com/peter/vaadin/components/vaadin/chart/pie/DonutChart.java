@@ -1,11 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.pie;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.Color;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.themes.ValoLightTheme;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 import java.util.Arrays;
@@ -16,7 +22,6 @@ public class DonutChart extends AbstractVaadinChartExample {
 
     private static Random rand = new Random(0);
     private static Color[] colors = new ValoLightTheme().getColors();
-
     @Override
     public String getDescription() {
         return "Donut chart";
@@ -52,8 +57,8 @@ public class DonutChart extends AbstractVaadinChartExample {
         innerSeries.setName("Browsers");
         PlotOptionsPie innerPieOptions = new PlotOptionsPie();
         innerSeries.setPlotOptions(innerPieOptions);
-        innerPieOptions.setSize(237);
-        innerPieOptions.setDataLabels(new Labels());
+        innerPieOptions.setSize("237px");
+        innerPieOptions.setDataLabels(new DataLabels());
         innerPieOptions.getDataLabels().setFormatter(
                 "this.y > 5 ? this.point.name : null");
         innerPieOptions.getDataLabels().setColor(new SolidColor(255, 255, 255));
@@ -68,9 +73,9 @@ public class DonutChart extends AbstractVaadinChartExample {
         outerSeries.setName("Versions");
         PlotOptionsPie outerSeriesOptions = new PlotOptionsPie();
         outerSeries.setPlotOptions(outerSeriesOptions);
-        outerSeriesOptions.setInnerSize(237);
-        outerSeriesOptions.setSize(318);
-        outerSeriesOptions.setDataLabels(new Labels());
+        outerSeriesOptions.setInnerSize("237px");
+        outerSeriesOptions.setSize("318px");
+        outerSeriesOptions.setDataLabels(new DataLabels());
         outerSeriesOptions
                 .getDataLabels()
                 .setFormatter(

@@ -1,13 +1,24 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Background;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.Dial;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Pane;
+import com.vaadin.addon.charts.model.PlotBand;
+import com.vaadin.addon.charts.model.PlotOptionsGauge;
+import com.vaadin.addon.charts.model.TickPosition;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
-
-import java.util.Random;
 
 public class VUMeter extends AbstractVaadinChartExample {
 
@@ -38,10 +49,10 @@ public class VUMeter extends AbstractVaadinChartExample {
         Pane pane2 = new Pane(-45, 45);
         pane1.setBackground(new Background[] {});
         pane2.setBackground(new Background[] {});
-        pane1.setCenterXY("25%", "145%");
-        pane2.setCenterXY("75%", "145%");
-        pane1.setSize(300);
-        pane2.setSize(300);
+        pane1.setCenter("25%", "145%");
+        pane2.setCenter("75%", "145%");
+        pane1.setSize("300px");
+        pane2.setSize("300");
 
         configuration.addPane(pane1);
         configuration.addPane(pane2);
@@ -62,9 +73,10 @@ public class VUMeter extends AbstractVaadinChartExample {
         yAxis.setMax(6);
         yAxis.setTickPosition(TickPosition.OUTSIDE);
         yAxis.setMinorTickPosition(TickPosition.OUTSIDE);
-        yAxis.setLabels(new Labels());
-        yAxis.getLabels().setDistance(20);
-        yAxis.getLabels().setRotationPerpendicular();
+        Labels labels = new Labels();
+        labels.setDistance(20);
+        labels.setRotationPerpendicular();
+        yAxis.setLabels(labels);
         yAxis.setPlotBands(plotBand1);
 
         YAxis yAxis2 = new YAxis();
@@ -75,16 +87,17 @@ public class VUMeter extends AbstractVaadinChartExample {
         yAxis2.setMax(6);
         yAxis2.setTickPosition(TickPosition.OUTSIDE);
         yAxis2.setMinorTickPosition(TickPosition.OUTSIDE);
-        yAxis2.setLabels(new Labels());
-        yAxis2.getLabels().setDistance(20);
-        yAxis2.getLabels().setRotationPerpendicular();
+        labels = new Labels();
+        labels.setDistance(20);
+        labels.setRotationPerpendicular();
+        yAxis2.setLabels(labels);
         yAxis2.setPlotBands(plotBand2);
 
         configuration.addyAxis(yAxis);
         configuration.addyAxis(yAxis2);
 
         PlotOptionsGauge gauge = new PlotOptionsGauge();
-        gauge.setDataLabels(new Labels(false));
+        gauge.setDataLabels(new DataLabels(false));
         gauge.setDial(new Dial());
         gauge.getDial().setRadius("100%");
 

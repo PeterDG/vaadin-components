@@ -1,29 +1,29 @@
 package com.peter.vaadin.components.vaadin.chart.threed;
 
-/**
- * Created by Peter on 4/3/2015.
- */
-
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.PointClickEvent;
 import com.vaadin.addon.charts.PointClickListener;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Cursor;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Options3d;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Notification;
 
 @SuppressWarnings("serial")
-public class Basic3DPie extends Chart {
-
-    public Basic3DPie() {
-        getChart();
-    }
+public class Basic3DPie extends AbstractVaadinChartExample {
 
     @Override
     public String getDescription() {
         return "3D Pie chart";
     }
 
-
+    @Override
     protected Component getChart() {
         Component ret = createChart();
         ret.setWidth("100%");
@@ -31,18 +31,18 @@ public class Basic3DPie extends Chart {
         return ret;
     }
 
-    public Chart createChart() {
+    public static Chart createChart() {
+        Chart chart = new Chart(ChartType.PIE);
 
+        Configuration conf = chart.getConfiguration();
 
-        Configuration conf = this.getConfiguration();
-        conf.getChart().setType(ChartType.PIE);
         conf.setTitle("Browser market shares at a specific website, 2010");
 
         PlotOptionsPie plotOptions = new PlotOptionsPie();
         plotOptions.setCursor(Cursor.POINTER);
-        Labels dataLabels = new Labels(true);
+        DataLabels dataLabels = new DataLabels(true);
         dataLabels
-                .setFormatter("''+ this.point.name +': '+ this.percentage +' %'");
+                .setFormatter("'<b>'+ this.point.name +'</b>: '+ this.percentage +' %'");
         plotOptions.setDataLabels(dataLabels);
 
         plotOptions.setDepth(45);
@@ -66,7 +66,7 @@ public class Basic3DPie extends Chart {
         options3d.setAlpha(60);
         conf.getChart().setOptions3d(options3d);
 
-        this.addPointClickListener(new PointClickListener() {
+        chart.addPointClickListener(new PointClickListener() {
 
             @Override
             public void onClick(PointClickEvent event) {
@@ -75,9 +75,9 @@ public class Basic3DPie extends Chart {
             }
         });
 
-        this.drawChart(conf);
+        chart.drawChart(conf);
 
-        return this;
+        return chart;
     }
 
 }

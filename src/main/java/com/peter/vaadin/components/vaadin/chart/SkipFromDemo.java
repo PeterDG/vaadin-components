@@ -1,7 +1,9 @@
 package com.peter.vaadin.components.vaadin.chart;
 
-/**
- * Created by Peter on 4/3/2015.
- */
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
 public @interface SkipFromDemo {
+
 }

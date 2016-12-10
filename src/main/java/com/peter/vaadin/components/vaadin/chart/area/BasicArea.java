@@ -1,8 +1,22 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Hover;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.MarkerSymbolEnum;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.States;
+import com.vaadin.addon.charts.model.Subtitle;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -20,7 +34,7 @@ public class BasicArea extends AbstractVaadinChartExample {
         Configuration conf = chart.getConfiguration();
 
         conf.setTitle(new Title("US and USSR nuclear stockpiles"));
-        conf.setSubTitle(new SubTitle(
+        conf.setSubTitle(new Subtitle(
                 "Source: <a href=\"http://thebulletin.metapress.com/content/c4120650912x74k7/fulltext.pdf\">thebulletin.metapress.com</a>"));
 
         PlotOptionsArea plotOptions = new PlotOptionsArea();
@@ -29,7 +43,9 @@ public class BasicArea extends AbstractVaadinChartExample {
         marker.setEnabled(false);
         marker.setSymbol(MarkerSymbolEnum.CIRCLE);
         marker.setRadius(2);
-        marker.setStates(new MarkerStates(new State(true)));
+        States states = new States();
+        states.setHover(new Hover(true));
+        marker.setStates(states);
         plotOptions.setMarker(marker);
         conf.setPlotOptions(plotOptions);
 
@@ -41,7 +57,7 @@ public class BasicArea extends AbstractVaadinChartExample {
         conf.addxAxis(xAxis);
 
         YAxis yAxis = new YAxis();
-        yAxis.setTitle(new Title("Nuclear weapon states"));
+        yAxis.setTitle(new AxisTitle("Nuclear weapon states"));
         labels = new Labels();
         // display y axis value in kilos as there is such a pile of weapons
         labels.setFormatter("this.value / 1000 +'k'");

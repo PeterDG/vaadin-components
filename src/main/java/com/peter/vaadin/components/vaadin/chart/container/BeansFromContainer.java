@@ -1,13 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.container;
 
+import java.io.Serializable;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.data.util.BeanItemContainer;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ContainerDataSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.ui.Component;
-
-import java.io.Serializable;
 
 @SkipFromDemo
 public class BeansFromContainer extends AbstractVaadinChartExample {

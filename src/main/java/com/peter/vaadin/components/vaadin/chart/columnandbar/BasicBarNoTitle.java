@@ -1,13 +1,27 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
-import com.vaadin.ui.Component;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsBar;
+import com.vaadin.addon.charts.model.Series;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
 @SkipFromDemo
@@ -33,8 +47,8 @@ public class BasicBarNoTitle extends AbstractVaadinChartExample {
 
         YAxis y = new YAxis();
         y.setMin(0);
-        Title title = new Title("Population (millions)");
-        title.setVerticalAlign(VerticalAlign.HIGH);
+        AxisTitle title = new AxisTitle("Population (millions)");
+        title.setAlign(VerticalAlign.MIDDLE);
         y.setTitle(title);
         conf.addyAxis(y);
 
@@ -43,18 +57,18 @@ public class BasicBarNoTitle extends AbstractVaadinChartExample {
         conf.setTooltip(tooltip);
 
         PlotOptionsBar plot = new PlotOptionsBar();
-        plot.setDataLabels(new Labels(true));
+        plot.setDataLabels(new DataLabels(true));
         conf.setPlotOptions(plot);
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.RIGHT);
+        legend.setAlign(HorizontalAlign.RIGHT);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(-100);
         legend.setY(100);
         legend.setFloating(true);
         legend.setBorderWidth(1);
-        legend.setBackgroundColor("#FFFFFF");
+        legend.setBackgroundColor(new SolidColor("#FFFFFF"));
         legend.setShadow(true);
         conf.setLegend(legend);
 

@@ -1,16 +1,25 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Hover;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.States;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.ZoomType;
 import com.vaadin.addon.charts.model.style.Color;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Component;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class TimeSeriesZoomable extends AbstractVaadinChartExample {
 
@@ -186,12 +195,12 @@ public class TimeSeriesZoomable extends AbstractVaadinChartExample {
 
         configuration.getxAxis().setType(AxisType.DATETIME);
         configuration.getxAxis().setMinRange(TWO_WEEKS);
-        configuration.getxAxis().setTitle(new Title(""));
+        configuration.getxAxis().setTitle(new AxisTitle(""));
 
         configuration.getLegend().setEnabled(false);
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Exchange rate"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Exchange rate"));
         yAxis.setMin(0.6);
         yAxis.setStartOnTick(false);
         yAxis.setShowFirstLabel(false);
@@ -210,15 +219,17 @@ public class TimeSeriesZoomable extends AbstractVaadinChartExample {
 
         Marker marker = new Marker();
         marker.setEnabled(false);
-        State hoverState = new State(true);
+        Hover hoverState = new Hover(true);
         hoverState.setRadius(5);
-        MarkerStates states = new MarkerStates(hoverState);
+        States states = new States();
+        states.setHover(hoverState);
         marker.setStates(states);
 
-        State hoverStateForArea = new State(true);
-        hoverState.setLineWidth(1);
-
-        plotOptions.setStates(new States(hoverStateForArea));
+        Hover hoverStateForArea = new Hover(true);
+        hoverStateForArea.setLineWidth(1);
+        States statesForArea = new States();
+        statesForArea.setHover(hoverStateForArea);
+        plotOptions.setStates(statesForArea);
         plotOptions.setMarker(marker);
         plotOptions.setShadow(false);
         configuration.setPlotOptions(plotOptions);

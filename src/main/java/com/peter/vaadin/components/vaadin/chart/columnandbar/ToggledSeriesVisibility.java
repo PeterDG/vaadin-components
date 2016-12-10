@@ -1,17 +1,29 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
+import java.util.Collection;
+import java.util.List;
+
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.LegendItemClickEvent;
 import com.vaadin.addon.charts.LegendItemClickListener;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.Series;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.OptionGroup;
-
-import java.util.Collection;
-import java.util.List;
 
 @SuppressWarnings("serial")
 public class ToggledSeriesVisibility extends AbstractVaadinChartExample {
@@ -53,8 +65,8 @@ public class ToggledSeriesVisibility extends AbstractVaadinChartExample {
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setBackgroundColor("#FFFFFF");
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setBackgroundColor(new SolidColor("#FFFFFF"));
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(100);
         legend.setY(70);

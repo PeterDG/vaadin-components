@@ -1,13 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.dynamic;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.ChartSelectionEvent;
 import com.vaadin.addon.charts.ChartSelectionListener;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsArearange;
+import com.vaadin.addon.charts.model.PlotOptionsScatter;
+import com.vaadin.addon.charts.model.RangeSeries;
+import com.vaadin.addon.charts.model.ZoomType;
 import com.vaadin.ui.Component;
-
-import java.util.Random;
 
 public class WebXYChartSelection extends AbstractVaadinChartExample {
 
@@ -29,8 +35,10 @@ public class WebXYChartSelection extends AbstractVaadinChartExample {
         scatterChart.getConfiguration().getChart().setZoomType(ZoomType.XY);
         scatterChart.getConfiguration().disableCredits();
         scatterChart.getConfiguration().setTitle("Selections as area ranges");
-        scatterChart.getConfiguration().setSubTitle(
-                "Drag with mouse to make selections. Click the legend items to toggle visibility.");
+        scatterChart
+                .getConfiguration()
+                .setSubTitle(
+                        "Drag with mouse to make selections. Click the legend items to toggle visibility.");
 
         PlotOptionsScatter scatterOptions = new PlotOptionsScatter();
         scatterOptions.setAnimation(false);
@@ -62,11 +70,12 @@ public class WebXYChartSelection extends AbstractVaadinChartExample {
                 Number[][] data = new Number[][] { { xStart, yStart, yEnd },
                         { xEnd, yStart, yEnd } };
 
-                PlotOptionsAreaRange areaRangePlot = new PlotOptionsAreaRange();
+                PlotOptionsArearange areaRangePlot = new PlotOptionsArearange();
                 areaRangePlot.setFillOpacity(0.1f);
                 areaRangePlot.setLineWidth(0);
 
                 RangeSeries selectionSeries = new RangeSeries("Selection", data);
+
                 selectionSeries.setPlotOptions(areaRangePlot);
                 scatterChart.getConfiguration().addSeries(selectionSeries);
                 scatterChart.drawChart();

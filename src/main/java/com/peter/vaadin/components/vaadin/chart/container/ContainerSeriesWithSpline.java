@@ -1,18 +1,18 @@
 package com.peter.vaadin.components.vaadin.chart.container;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
 import com.vaadin.addon.charts.model.AxisType;
 import com.vaadin.addon.charts.model.Configuration;
 import com.vaadin.addon.charts.model.ContainerDataSeries;
 import com.vaadin.addon.charts.model.PlotOptionsSpline;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
 import com.vaadin.ui.Component;
-
-import java.util.Calendar;
-import java.util.Date;
 
 @SkipFromDemo
 public class ContainerSeriesWithSpline extends AbstractVaadinChartExample {

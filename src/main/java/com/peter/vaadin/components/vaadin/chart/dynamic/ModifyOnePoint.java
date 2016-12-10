@@ -1,19 +1,27 @@
 package com.peter.vaadin.components.vaadin.chart.dynamic;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Marker;
 import com.vaadin.addon.charts.model.style.Color;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.themes.ValoLightTheme;
 import com.vaadin.data.Property.ValueChangeEvent;
 import com.vaadin.data.Property.ValueChangeListener;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.ColorPicker;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.Slider;
 import com.vaadin.ui.components.colorpicker.ColorChangeEvent;
 import com.vaadin.ui.components.colorpicker.ColorChangeListener;
-
-import java.util.Random;
 
 @SuppressWarnings("serial")
 public class ModifyOnePoint extends AbstractVaadinChartExample {
@@ -55,6 +63,7 @@ public class ModifyOnePoint extends AbstractVaadinChartExample {
         chart.drawChart(configuration);
 
         return chart;
+
     }
 
     static final Color[] colors = new ValoLightTheme().getColors();

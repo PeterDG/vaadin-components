@@ -1,10 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.ZoomType;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.model.style.Style;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -52,7 +63,7 @@ public class DualAxesLineAndColumn extends AbstractVaadinChartExample {
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setX(120);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setY(100);

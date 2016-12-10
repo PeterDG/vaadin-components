@@ -1,24 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart;
 
-import com.vaadin.addon.charts.ChartOptions;
-import com.vaadin.addon.charts.model.style.Color;
-import com.vaadin.addon.charts.model.style.Theme;
-import com.vaadin.addon.charts.themes.ValoLightTheme;
-import com.vaadin.data.Item;
-import com.vaadin.data.util.BeanItem;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
-
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.vaadin.addon.charts.ChartOptions;
+import com.vaadin.addon.charts.model.style.Color;
+import com.vaadin.addon.charts.model.style.Theme;
+import com.vaadin.addon.charts.themes.ValoLightTheme;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+
 @SuppressWarnings("serial")
 public abstract class AbstractVaadinChartExample extends VerticalLayout
-      {
+        implements ChartExample {
 
     /**
      * Runs given task repeatedly until the reference component is attached
@@ -59,7 +56,9 @@ public abstract class AbstractVaadinChartExample extends VerticalLayout
                 }
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO,
                         "Thread stopped");
-            };
+            }
+
+            ;
         };
         thread.start();
     }
@@ -80,41 +79,7 @@ public abstract class AbstractVaadinChartExample extends VerticalLayout
         setup();
     }
 
-
-    public Component getComponentUsedByPropertyEditor() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-
-    public List getPropertyEditorExcludedList() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-
-    public List getExtraComponentsForPropertyEditor() {
-        return null;
-    }
-
-    private Item sampleItem;
-
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-
-    public Item getSampleItem() {
-        if (sampleItem == null) {
-            sampleItem = new BeanItem(getComponentUsedByPropertyEditor());
-        }
-        return sampleItem;
-    }
-
-
-    public void sampleOpened() {
-        // TODO Auto-generated method stub
-
-    }
-
-
+    @Override
     public Component getWrappedComponent() {
         setup();
         content.getComponent(0).setSizeFull();

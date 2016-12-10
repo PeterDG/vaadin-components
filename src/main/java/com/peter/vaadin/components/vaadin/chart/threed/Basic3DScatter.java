@@ -1,44 +1,38 @@
 package com.peter.vaadin.components.vaadin.chart.threed;
 
-/**
- * Created by Peter on 4/3/2015.
- */
-
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.ChartOptions;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
-import com.vaadin.addon.charts.model.style.Theme;
-import com.vaadin.addon.charts.themes.ValoLightTheme;
-import com.vaadin.ui.Component;
-
 import java.util.Random;
 
-public class Basic3DScatter extends Chart {
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Bottom;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem3d;
+import com.vaadin.addon.charts.model.Frame;
+import com.vaadin.addon.charts.model.Options3d;
+import com.vaadin.addon.charts.model.PlotOptionsScatter;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.ZAxis;
+import com.vaadin.ui.Component;
 
-    public Basic3DScatter() {
-        getChart();
-    }
+public class Basic3DScatter extends AbstractVaadinChartExample {
 
     @Override
     public String getDescription() {
         return "3D Scatter";
     }
 
-
+    @Override
     protected Component getChart() {
-
         return createScatterChart();
-
     }
 
     private Chart createScatterChart() {
-
-        Configuration conf = this.getConfiguration();
-        conf.getChart().setType(ChartType.SCATTER);
-        this.setId("chart");
-        conf.disableCredits();
-        conf.setTitle("Points of a sphere");
+        final Chart scatterChart = new Chart(ChartType.SCATTER);
+        scatterChart.setId("chart");
+        scatterChart.getConfiguration().disableCredits();
+        scatterChart.getConfiguration().setTitle("Points of a sphere");
         PlotOptionsScatter scatterOptions = new PlotOptionsScatter();
         scatterOptions.setAnimation(false);
         scatterOptions.setPointStart(1);
@@ -52,21 +46,24 @@ public class Basic3DScatter extends Chart {
 
         fillSeries(higherX, higherY, higherZ);
 
-        conf.addSeries(higherX);
-        conf.addSeries(higherY);
-        conf.addSeries(higherZ);
+        scatterChart.getConfiguration().addSeries(higherX);
+        scatterChart.getConfiguration().addSeries(higherY);
+        scatterChart.getConfiguration().addSeries(higherZ);
 
-        XAxis x = conf.getxAxis();
+        XAxis x = scatterChart.getConfiguration().getxAxis();
         x.setGridLineWidth(1);
         x.setExtremes(-3, 3);
 
         if (getCurrentTheme().getxAxis().getGridLineColor() != null) {
-            x.setGridLineColor((SolidColor) getCurrentTheme().getxAxis()
-                    .getGridLineColor());
+            x.setGridLineColor(getCurrentTheme().getxAxis().getGridLineColor());
         }
 
-        YAxis y = conf.getyAxis();
+        YAxis y = scatterChart.getConfiguration().getyAxis();
         y.setExtremes(-1, 1);
+
+        ZAxis z = scatterChart.getConfiguration().getzAxis();
+        z.setMin(-1);
+        z.setMax(1);
 
         Options3d options3d = new Options3d();
         options3d.setEnabled(true);
@@ -76,17 +73,19 @@ public class Basic3DScatter extends Chart {
         options3d.setViewDistance(40);
 
         Frame frame = new Frame();
-        frame.setBottom(new FramePanel(null, 1));
+        Bottom bottom = new Bottom();
+        bottom.setSize(1);
+        frame.setBottom(bottom);
         options3d.setFrame(frame);
-        conf.getChart().setOptions3d(options3d);
+        scatterChart.getConfiguration().getChart().setOptions3d(options3d);
 
-        this.drawChart();
-        return this;
+        scatterChart.drawChart();
+        return scatterChart;
 
     }
 
     private void fillSeries(DataSeries higherX, DataSeries higherY,
-                            DataSeries higherZ) {
+            DataSeries higherZ) {
         Random random = new Random(7);
         for (int i = 0; i < 300; i++) {
             double lng = random.nextDouble() * 2 * Math.PI;
@@ -105,11 +104,6 @@ public class Basic3DScatter extends Chart {
             }
         }
 
-    }
-
-    protected Theme getCurrentTheme() {
-        Theme theme = ChartOptions.get().getTheme();
-        return (theme != null) ? theme : new ValoLightTheme();
     }
 
 }

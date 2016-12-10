@@ -1,9 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.container;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.data.Container;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.peter.vaadin.components.vaadin.chart.ExampleUtil;
+import com.vaadin.addon.charts.model.AbstractSeries;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ContainerDataSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
+import com.vaadin.addon.charts.model.Series;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.data.Container;
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
@@ -82,7 +90,6 @@ public class ChartWithExternalContainer extends AbstractVaadinChartExample {
         configuration.setPlotOptions(plotOptions);
 
         configuration.setSeries(container);
-        // System.out.println(configuration.toString());
         chart.drawChart(configuration);
         return chart;
     }
@@ -103,7 +110,6 @@ public class ChartWithExternalContainer extends AbstractVaadinChartExample {
         configuration.setPlotOptions(plotOptions);
 
         configuration.setSeries(container);
-        // System.out.println(configuration.toString());
         chart.drawChart(configuration);
 
         return chart;

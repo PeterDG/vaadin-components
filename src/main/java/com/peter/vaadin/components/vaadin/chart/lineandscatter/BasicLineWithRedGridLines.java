@@ -1,10 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DashStyle;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SkipFromDemo
@@ -32,10 +41,10 @@ public class BasicLineWithRedGridLines extends AbstractVaadinChartExample {
         configuration.getxAxis().setCategories("Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-        Axis yAxis = configuration.getyAxis();
+        YAxis yAxis = configuration.getyAxis();
         yAxis.setMin(-5d);
-        yAxis.setTitle(new Title("Temperature (°C)"));
-        yAxis.getTitle().setVerticalAlign(VerticalAlign.HIGH);
+        yAxis.setTitle(new AxisTitle("Temperature (°C)"));
+        yAxis.getTitle().setAlign(VerticalAlign.MIDDLE);
         yAxis.setGridLineColor(new SolidColor("red"));
         yAxis.setGridLineDashStyle(DashStyle.DASHDOT);
         yAxis.setGridLineWidth(3);
@@ -45,7 +54,7 @@ public class BasicLineWithRedGridLines extends AbstractVaadinChartExample {
         xAxis.setGridLineWidth(4);
 
         PlotOptionsLine plotOptions = new PlotOptionsLine();
-        plotOptions.setDataLabels(new Labels(true));
+        plotOptions.setDataLabels(new DataLabels(true));
         configuration.setPlotOptions(plotOptions);
 
         ListSeries ls = new ListSeries();

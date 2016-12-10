@@ -5,12 +5,13 @@
 	<groupId>com.peter.vaadin</groupId>
 	<artifactId>vaadin-components</artifactId>
 	<!--<packaging>war</packaging>-->
-	<version>1.0.0</version>
+	<version>2.0.0</version>
 	<name>vaadin-components</name>
 
 	<properties>
-		<vaadin.version>7.5.9</vaadin.version>
+		<vaadin.version>7.7.6</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+		<vaadin.charts.version>3.2.0</vaadin.charts.version>
 		<jetty.plugin.version>9.2.3.v20140905</jetty.plugin.version>
 		<project.source.version>1.8</project.source.version>
 		<project.target.version>1.8</project.target.version>
@@ -61,14 +62,17 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
+			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-push</artifactId>
+			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client</artifactId>
+			<version>${vaadin.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!--
@@ -88,11 +92,17 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
+			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>vaadin-charts</artifactId>
-			<version>2.0.0</version>
+			<version>${vaadin.charts.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin.addon</groupId>
+			<artifactId>vaadin-charts-model</artifactId>
+			<version>${vaadin.charts.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.lotsabackscatter</groupId>
@@ -102,7 +112,7 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiler</artifactId>
-			<version>7.4.8</version>
+			<version>${vaadin.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -116,191 +126,24 @@
 		</dependency>
 	</dependencies>
 
-	<!--<build>-->
-		<!--<plugins>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-compiler-plugin</artifactId>-->
-				<!--<version>3.0</version>-->
-				<!--<configuration>-->
-					<!--<encoding>${project.encoding}</encoding>-->
-					<!--<source>${project.source.version}</source>-->
-					<!--<target>${project.target.version}</target>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-resources-plugin</artifactId>-->
-				<!--<version>2.6</version>-->
-				<!--<configuration>-->
-					<!--<encoding>${project.encoding}</encoding>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-jar-plugin</artifactId>-->
-				<!--<configuration>-->
-					<!--<archive>-->
-						<!--<manifest>-->
-							<!--<addClasspath>true</addClasspath>-->
-							<!--<classpathPrefix>dependency-jars/</classpathPrefix>-->
-							<!--<mainClass>MyUI</mainClass>-->
-						<!--</manifest>-->
-						<!--<manifestEntries>-->
-							<!--&lt;!&ndash; Package format version - do not change &ndash;&gt;-->
-							<!--<Vaadin-Package-Version>1</Vaadin-Package-Version>-->
-
-							<!--&lt;!&ndash; Add-on specific fields to update &ndash;&gt;-->
-							<!--<AdVaaLicen>cval</AdVaaLicen>-->
-							<!--<AdVaaName>peter-vaadin-applet</AdVaaName>-->
-							<!--<AdVaaPkg>com.peter.vaadin.components.others.applet.client</AdVaaPkg>-->
-
-							<!--&lt;!&ndash; Implementation-Title and Implementation-Version-->
-                                <!--come from the POM by default &ndash;&gt;-->
-							<!--<Implementation-Title>Vaadin Applet</Implementation-Title>-->
-
-							<!--&lt;!&ndash; Comma-separated list of widgetsets in the-->
-                                <!--package &ndash;&gt;-->
-							<!--<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.AppletintegrationWidgetset</Vaadin-Widgetsets>-->
-						<!--</manifestEntries>-->
-					<!--</archive>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-dependency-plugin</artifactId>-->
-				<!--<version>2.5.1</version>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>copy-dependencies</id>-->
-						<!--<phase>package</phase>-->
-						<!--<goals>-->
-							<!--<goal>copy-dependencies</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-war-plugin</artifactId>-->
-				<!--<version>2.3</version>-->
-				<!--<configuration>-->
-					<!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
-					<!--&lt;!&ndash; Exclude some unnecessary files generated by the GWT compiler. &ndash;&gt;-->
-					<!--<packagingExcludes>WEB-INF/classes/VAADIN/gwt-unitCache/**,-->
-						<!--WEB-INF/classes/VAADIN/widgetsets/WEB-INF/**</packagingExcludes>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>com.vaadin</groupId>-->
-				<!--<artifactId>vaadin-maven-plugin</artifactId>-->
-				<!--<version>${vaadin.plugin.version}</version>-->
-				<!--<configuration>-->
-					<!--<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>-->
-					<!--<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>-->
-					<!--<draftCompile>false</draftCompile>-->
-					<!--<compileReport>false</compileReport>-->
-					<!--<style>OBF</style>-->
-					<!--<strict>true</strict>-->
-				<!--</configuration>-->
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<goals>-->
-							<!--<goal>update-theme</goal>-->
-							<!--<goal>update-widgetset</goal>-->
-							<!--<goal>compile</goal>-->
-							<!--&lt;!&ndash; disabled by default to use on-the-fly theme compilation &ndash;&gt;-->
-							<!--&lt;!&ndash; <goal>compile-theme</goal> &ndash;&gt;-->
-						<!--</goals>-->
-					<!--</execution>-->
-				<!--</executions>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-source-plugin</artifactId>-->
-				<!--<version>2.4</version>-->
-			<!--</plugin>-->
-			<!--<plugin>-->
-				<!--<groupId>org.apache.maven.plugins</groupId>-->
-				<!--<artifactId>maven-clean-plugin</artifactId>-->
-				<!--<version>2.6.1</version>-->
-				<!--&lt;!&ndash; Clean up also any pre-compiled themes &ndash;&gt;-->
-				<!--<configuration>-->
-					<!--<filesets>-->
-						<!--<fileset>-->
-							<!--<directory>src/main/webapp/VAADIN/themes</directory>-->
-							<!--<includes>-->
-								<!--<include>**/styles.css</include>-->
-								<!--<include>**/styles.scss.cache</include>-->
-							<!--</includes>-->
-						<!--</fileset>-->
-					<!--</filesets>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-
-			<!--&lt;!&ndash; The Jetty plugin allows us to easily test the development build by-->
-				<!--running jetty:run on the command line. &ndash;&gt;-->
-			<!--<plugin>-->
-				<!--<groupId>org.eclipse.jetty</groupId>-->
-				<!--<artifactId>jetty-maven-plugin</artifactId>-->
-				<!--<version>${jetty.plugin.version}</version>-->
-				<!--<configuration>-->
-				    <!--<scanIntervalSeconds>2</scanIntervalSeconds>-->
-				<!--</configuration>-->
-			<!--</plugin>-->
-		<!--</plugins>-->
-
-		<!--<pluginManagement>-->
-			<!--<plugins>-->
-				<!--&lt;!&ndash;This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.&ndash;&gt;-->
-				<!--&lt;!&ndash; TODO Remove when http://dev.vaadin.com/ticket/14924 is resolved &ndash;&gt;-->
-				<!--<plugin>-->
-					<!--<groupId>org.eclipse.m2e</groupId>-->
-					<!--<artifactId>lifecycle-mapping</artifactId>-->
-					<!--<version>1.0.0</version>-->
-					<!--<configuration>-->
-						<!--<lifecycleMappingMetadata>-->
-							<!--<pluginExecutions>-->
-								<!--<pluginExecution>-->
-									<!--<pluginExecutionFilter>-->
-										<!--<groupId>com.vaadin</groupId>-->
-										<!--<artifactId>-->
-											<!--vaadin-maven-plugin-->
-										<!--</artifactId>-->
-										<!--<versionRange>[7.1.11,)</versionRange>-->
-										<!--<goals>-->
-											<!--<goal>resources</goal>-->
-											<!--<goal>update-widgetset</goal>-->
-											<!--<goal>compile</goal>-->
-											<!--<goal>compile-theme</goal>-->
-											<!--<goal>update-theme</goal>-->
-										<!--</goals>-->
-									<!--</pluginExecutionFilter>-->
-									<!--<action>-->
-										<!--<ignore></ignore>-->
-									<!--</action>-->
-								<!--</pluginExecution>-->
-							<!--</pluginExecutions>-->
-						<!--</lifecycleMappingMetadata>-->
-					<!--</configuration>-->
-				<!--</plugin>-->
-			<!--</plugins>-->
-		<!--</pluginManagement>-->
-
-	<!--</build>-->
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
+				<version>3.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<encoding>${project.encoding}</encoding>
+					<source>${project.source.version}</source>
+					<target>${project.target.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -311,34 +154,209 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>dependency-jars/</classpathPrefix>
-							<mainClass>JavaApiTesting</mainClass>
-						</manifest>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<addDefaultImplementationEntries>true
-							</addDefaultImplementationEntries>
+							<mainClass>MyUI</mainClass>
 						</manifest>
 						<manifestEntries>
-
+							<!-- Package format version - do not change -->
 							<Vaadin-Package-Version>1</Vaadin-Package-Version>
-							<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.Widgetset,
-								               com.peter.vaadin.components.others.mycomponent.Widgetset</Vaadin-Widgetsets>
+
+							<!-- Add-on specific fields to update -->
+							<AdVaaLicen>cval</AdVaaLicen>
+							<AdVaaName>peter-vaadin-applet</AdVaaName>
+							<AdVaaPkg>com.peter.vaadin.components.others.applet.client</AdVaaPkg>
+
+							<!-- Implementation-Title and Implementation-Version
+                                come from the POM by default -->
+							<Implementation-Title>Vaadin Applet</Implementation-Title>
+
+							<!-- Comma-separated list of widgetsets in the
+                                package -->
+							<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.AppletintegrationWidgetset</Vaadin-Widgetsets>
 						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.5.1</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<!-- Exclude some unnecessary files generated by the GWT compiler. -->
+					<packagingExcludes>WEB-INF/classes/VAADIN/gwt-unitCache/**,
+						WEB-INF/classes/VAADIN/widgetsets/WEB-INF/**</packagingExcludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-maven-plugin</artifactId>
+				<version>${vaadin.plugin.version}</version>
+				<configuration>
+					<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+					<webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
+					<draftCompile>false</draftCompile>
+					<compileReport>false</compileReport>
+					<style>OBF</style>
+					<strict>true</strict>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resources</goal>
+							<goal>update-theme</goal>
+							<goal>update-widgetset</goal>
+							<goal>compile</goal>
+							<!-- disabled by default to use on-the-fly theme compilation -->
+							 <goal>compile-theme</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+				<!-- Clean up also any pre-compiled themes -->
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/webapp/VAADIN/themes</directory>
+							<includes>
+								<include>**/styles.css</include>
+								<include>**/styles.scss.cache</include>
+							</includes>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<!-- The Jetty plugin allows us to easily test the development build by
+				running jetty:run on the command line. -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.plugin.version}</version>
+				<configuration>
+				    <scanIntervalSeconds>2</scanIntervalSeconds>
+				</configuration>
+			</plugin>
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!-- TODO Remove when http://dev.vaadin.com/ticket/14924 is resolved -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>com.vaadin</groupId>
+										<artifactId>
+											vaadin-maven-plugin
+										</artifactId>
+										<versionRange>[7.1.11,)</versionRange>
+										<goals>
+											<goal>resources</goal>
+											<goal>update-widgetset</goal>
+											<goal>compile</goal>
+											<goal>compile-theme</goal>
+											<goal>update-theme</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<resources>
 			<resource>
 				<directory>src/main/java</directory>
-				<excludes>
-					<exclude>rebel.xml</exclude>
-				</excludes>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
 	</build>
+
+	<!--<build>-->
+		<!--<plugins>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>3.3</version>-->
+				<!--<configuration>-->
+					<!--<source>1.8</source>-->
+					<!--<target>1.8</target>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-jar-plugin</artifactId>-->
+				<!--<configuration>-->
+					<!--<archive>-->
+						<!--<manifest>-->
+							<!--<addClasspath>true</addClasspath>-->
+							<!--<classpathPrefix>dependency-jars/</classpathPrefix>-->
+							<!--<mainClass>JavaApiTesting</mainClass>-->
+						<!--</manifest>-->
+						<!--<manifest>-->
+							<!--<addClasspath>true</addClasspath>-->
+							<!--<addDefaultImplementationEntries>true-->
+							<!--</addDefaultImplementationEntries>-->
+						<!--</manifest>-->
+						<!--<manifestEntries>-->
+
+							<!--<Vaadin-Package-Version>1</Vaadin-Package-Version>-->
+							<!--<Vaadin-Widgetsets>com.peter.vaadin.components.others.applet.Widgetset,-->
+								               <!--com.peter.vaadin.components.others.mycomponent.Widgetset</Vaadin-Widgetsets>-->
+						<!--</manifestEntries>-->
+					<!--</archive>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+		<!--</plugins>-->
+		<!--<resources>-->
+			<!--<resource>-->
+				<!--<directory>src/main/java</directory>-->
+				<!--<excludes>-->
+					<!--<exclude>rebel.xml</exclude>-->
+				<!--</excludes>-->
+			<!--</resource>-->
+			<!--<resource>-->
+				<!--<directory>src/main/resources</directory>-->
+			<!--</resource>-->
+		<!--</resources>-->
+	<!--</build>-->
 
 </project>

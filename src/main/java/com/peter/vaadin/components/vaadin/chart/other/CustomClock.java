@@ -1,15 +1,25 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
+import java.util.Calendar;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.Background;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Dial;
+import com.vaadin.addon.charts.model.PlotOptionsGauge;
+import com.vaadin.addon.charts.model.TickPosition;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.FontWeight;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.model.style.Style;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
-
-import java.util.Calendar;
 
 @SkipFromDemo
 public class CustomClock extends AbstractVaadinChartExample {
@@ -67,7 +77,7 @@ public class CustomClock extends AbstractVaadinChartExample {
         yAxis.setTickLength(10);
         yAxis.setTickColor(new SolidColor("#666"));
 
-        yAxis.setTitle(new Title("Powered by<br/>Vaadin Charts 2"));
+        yAxis.setTitle(new AxisTitle("Powered by<br/>Vaadin Charts 2"));
         yAxis.getTitle().setStyle(new Style());
         yAxis.getTitle().getStyle().setColor(new SolidColor("#BBB"));
         yAxis.getTitle().getStyle().setFontWeight(FontWeight.BOLD);
@@ -92,7 +102,7 @@ public class CustomClock extends AbstractVaadinChartExample {
         series.add(second);
 
         PlotOptionsGauge plotOptionsGauge = new PlotOptionsGauge();
-        plotOptionsGauge.setDataLabels(new Labels(false));
+        plotOptionsGauge.setDataLabels(new DataLabels(false));
         configuration.setPlotOptions(plotOptionsGauge);
 
         configuration.setSeries(series);

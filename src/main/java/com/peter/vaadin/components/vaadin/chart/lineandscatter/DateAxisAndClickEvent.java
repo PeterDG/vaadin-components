@@ -1,14 +1,22 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
-import com.vaadin.addon.charts.*;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.util.Util;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.Notification;
-
 import java.util.Calendar;
 import java.util.Random;
+
+import com.vaadin.addon.charts.Chart;
+import com.vaadin.addon.charts.ChartClickEvent;
+import com.vaadin.addon.charts.ChartClickListener;
+import com.vaadin.addon.charts.PointClickEvent;
+import com.vaadin.addon.charts.PointClickListener;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.util.Util;
+import com.vaadin.ui.Component;
+import com.vaadin.ui.Notification;
 
 public class DateAxisAndClickEvent extends AbstractVaadinChartExample {
 
@@ -61,7 +69,7 @@ public class DateAxisAndClickEvent extends AbstractVaadinChartExample {
                  * convert it to Date object at their local time zone.
                  */
                 Notification.show("Clicked @ "
-                        + Util.toServerDate(timeStampShiftedToUc).toString());
+                        + Util.toServerDate(timeStampShiftedToUc));
             }
         });
 
@@ -74,7 +82,7 @@ public class DateAxisAndClickEvent extends AbstractVaadinChartExample {
                  */;
                 double timeStampShiftedToUc = event.getX();
                 Notification.show("Clicked Point with Date value "
-                        + Util.toServerDate(timeStampShiftedToUc).toString());
+                        + Util.toServerDate(timeStampShiftedToUc));
             }
         });
 

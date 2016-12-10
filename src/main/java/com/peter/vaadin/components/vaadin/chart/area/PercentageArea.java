@@ -1,8 +1,20 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Subtitle;
+import com.vaadin.addon.charts.model.TickmarkPlacement;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -27,7 +39,7 @@ public class PercentageArea extends AbstractVaadinChartExample {
 
         conf.setTitle(new Title(
                 "Historic and Estimated Worldwide Population Distribution by Region"));
-        conf.setSubTitle(new SubTitle("Source: Wikipedia.org"));
+        conf.setSubTitle(new Subtitle("Source: Wikipedia.org"));
 
         XAxis xAxis = new XAxis();
         xAxis.setTickmarkPlacement(TickmarkPlacement.ON);
@@ -36,7 +48,7 @@ public class PercentageArea extends AbstractVaadinChartExample {
         conf.addxAxis(xAxis);
 
         YAxis yAxis = new YAxis();
-        yAxis.setTitle(new Title("Percent"));
+        yAxis.setTitle(new AxisTitle("Percent"));
         conf.addyAxis(yAxis);
 
         Tooltip tooltip = new Tooltip();

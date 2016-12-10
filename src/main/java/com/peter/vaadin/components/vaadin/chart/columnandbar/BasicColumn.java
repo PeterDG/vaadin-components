@@ -1,25 +1,35 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
-public class BasicColumn extends Chart {
-
-    public BasicColumn() {
-        getChart();
-    }
+public class BasicColumn extends AbstractVaadinChartExample {
 
     @Override
     public String getDescription() {
         return "Basic column";
     }
 
+    @Override
     protected Component getChart() {
+        Chart chart = new Chart(ChartType.COLUMN);
 
-        Configuration conf = this.getConfiguration();
-        conf.getChart().setType(ChartType.COLUMN);
+        Configuration conf = chart.getConfiguration();
+
         conf.setTitle("Total fruit consumption, grouped by gender");
         conf.setSubTitle("Source: WorldClimate.com");
 
@@ -35,8 +45,8 @@ public class BasicColumn extends Chart {
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setBackgroundColor("#FFFFFF");
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setBackgroundColor(new SolidColor("#FFFFFF"));
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(100);
         legend.setY(70);
@@ -61,7 +71,7 @@ public class BasicColumn extends Chart {
         conf.addSeries(new ListSeries("Berlin", 42.4, 33.2, 34.5, 39.7, 52.6,
                 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1));
 
-        this.drawChart(conf);
-        return this;
+        chart.drawChart(conf);
+        return chart;
     }
 }

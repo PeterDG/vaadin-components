@@ -1,10 +1,26 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
-import com.vaadin.addon.charts.*;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.Color;
-import com.vaadin.addon.charts.model.style.Style;
+import com.vaadin.addon.charts.Chart;
+import com.vaadin.addon.charts.ChartClickEvent;
+import com.vaadin.addon.charts.ChartClickListener;
+import com.vaadin.addon.charts.PointClickEvent;
+import com.vaadin.addon.charts.PointClickListener;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.ZoomType;
+import com.vaadin.addon.charts.model.style.Color;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.addon.charts.model.style.Style;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Window;
@@ -51,18 +67,17 @@ public class BasicLineGettingMousePointerPosition extends
         snd.getTitle().setStyle(style);
         conf.addyAxis(snd);
 
-        Tooltip tooltip = new Tooltip();
-        tooltip.setFormatter("this.x +': '+ this.y + (this.series.name == 'Rainfall' ? ' mm' : '°C')");
+        Tooltip tooltip = new Tooltip(false);
         conf.setTooltip(tooltip);
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setX(120);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setY(100);
         legend.setFloating(true);
-        legend.setBackgroundColor("#FFFFFF");
+        legend.setBackgroundColor(new SolidColor("#FFFFFF"));
         conf.setLegend(legend);
 
         DataSeries series = new DataSeries();

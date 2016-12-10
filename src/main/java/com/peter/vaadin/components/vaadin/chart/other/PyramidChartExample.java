@@ -1,8 +1,12 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabelsFunnel;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsPyramid;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -30,12 +34,12 @@ public class PyramidChartExample extends AbstractVaadinChartExample {
         conf.getLegend().setEnabled(false);
 
         PlotOptionsPyramid options = new PlotOptionsPyramid();
+        // With default (90%), long labels in this example may be cut
+        options.setWidth(70, Unit.PERCENTAGE);
+        // in pixels
+        // options.setWidth(400);
 
-        options.setWidthAsPercentage(70); // With default (90%), long labels in
-        // this example may be cut
-        // options.setWidth(400); // in pixels
-
-        Labels dataLabels = new Labels();
+        DataLabelsFunnel dataLabels = new DataLabelsFunnel();
         dataLabels.setFormat("<b>{point.name}</b> ({point.y:,.0f})");
         options.setDataLabels(dataLabels);
 

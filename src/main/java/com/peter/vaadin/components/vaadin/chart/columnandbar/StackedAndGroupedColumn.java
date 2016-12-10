@@ -1,8 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -29,7 +38,7 @@ public class StackedAndGroupedColumn extends AbstractVaadinChartExample {
         YAxis yAxis = new YAxis();
         yAxis.setAllowDecimals(false);
         yAxis.setMin(0);
-        yAxis.setTitle(new Title("Number of fruits"));
+        yAxis.setTitle(new AxisTitle("Number of fruits"));
         conf.addyAxis(yAxis);
 
         Tooltip tooltip = new Tooltip();

@@ -1,9 +1,22 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotBand;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -28,7 +41,7 @@ public class AreaSpline extends AbstractVaadinChartExample {
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setFloating(true);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(150);
@@ -40,12 +53,12 @@ public class AreaSpline extends AbstractVaadinChartExample {
                 "Thursday", "Friday", "Saturday", "Sunday" });
         // add blue background for the weekend
         PlotBand plotBand = new PlotBand(4.5, 6.5, LIGHT_BLUE);
-        plotBand.setzIndex(1);
+        plotBand.setZIndex(1);
         xAxis.setPlotBands(plotBand);
         conf.addxAxis(xAxis);
 
         YAxis yAxis = new YAxis();
-        yAxis.setTitle(new Title("Fruit units"));
+        yAxis.setTitle(new AxisTitle("Fruit units"));
         conf.addyAxis(yAxis);
 
         Tooltip tooltip = new Tooltip();

@@ -1,8 +1,12 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 public class LogarithmicAxis extends AbstractVaadinChartExample {
@@ -23,9 +27,9 @@ public class LogarithmicAxis extends AbstractVaadinChartExample {
 
         configuration.getxAxis().setTickInterval(1);
 
-        Axis yAxis = configuration.getyAxis();
+        YAxis yAxis = configuration.getyAxis();
         yAxis.setType(AxisType.LOGARITHMIC);
-        yAxis.setMinorTickInterval(0.1);
+        yAxis.setMinorTickInterval("0.1");
 
         configuration.getTooltip()
                 .setHeaderFormat("<b>{series.name}</b><br />");

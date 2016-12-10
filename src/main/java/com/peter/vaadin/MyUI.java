@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 
 import com.peter.vaadin.components.others.SubWindow;
 import com.peter.vaadin.components.others.mycomponent.MyComponent;
+import com.peter.vaadin.components.vaadin.chart.timeline.Candlestick;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;

@@ -1,9 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Crosshair;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.MarkerSymbolEnum;
+import com.vaadin.addon.charts.model.MarkerSymbolUrl;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 public class SplineWithSymbols extends AbstractVaadinChartExample {
@@ -28,14 +38,16 @@ public class SplineWithSymbols extends AbstractVaadinChartExample {
         configuration.getxAxis().setCategories("Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Temperature"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Temperature"));
         Labels labels = new Labels();
         labels.setFormatter("this.value +'°'");
         yAxis.setLabels(labels);
 
+
         configuration.getTooltip().setShared(true);
-        configuration.getTooltip().setCrosshairs(true);
+
+        configuration.getxAxis().setCrosshair(new Crosshair());
 
         PlotOptionsSpline plotOptions = new PlotOptionsSpline();
         configuration.setPlotOptions(plotOptions);

@@ -1,11 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.pie;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.GradientColor;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Cursor;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
+import com.vaadin.addon.charts.model.style.GradientColor;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -29,8 +35,7 @@ public class PieWithCustomBorder extends AbstractVaadinChartExample {
         plotOptions.setBorderColor(new SolidColor("green"));
         plotOptions.setBorderWidth(6);
         plotOptions.setCursor(Cursor.POINTER);
-        Labels dataLabels = new Labels();
-        dataLabels.setEnabled(true);
+        DataLabels dataLabels = new DataLabels(true);
         dataLabels.setColor(SolidColor.BLACK);
         dataLabels.setConnectorColor(SolidColor.BLACK);
         dataLabels

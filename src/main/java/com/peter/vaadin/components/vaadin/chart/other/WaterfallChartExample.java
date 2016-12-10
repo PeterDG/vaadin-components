@@ -1,9 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.Color;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.DataSeriesItem3d;
+import com.vaadin.addon.charts.model.PlotOptionsWaterfall;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.WaterFallSum;
+import com.vaadin.addon.charts.model.style.Color;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -46,7 +54,7 @@ public class WaterfallChartExample extends AbstractVaadinChartExample {
         PlotOptionsWaterfall opts = new PlotOptionsWaterfall();
         opts.setColor(color);
         opts.setUpColor(upColor);
-        Labels dataLabels = new Labels(true);
+        DataLabels dataLabels = new DataLabels(true);
         dataLabels.setVerticalAlign(VerticalAlign.TOP);
         dataLabels.setY(-30);
         dataLabels.setFormatter("this.y / 1000 + 'k'");

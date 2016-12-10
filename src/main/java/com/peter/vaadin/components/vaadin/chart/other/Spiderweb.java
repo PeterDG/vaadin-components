@@ -1,8 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Pane;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.PointPlacement;
+import com.vaadin.addon.charts.model.TickmarkPlacement;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -23,9 +34,8 @@ public class Spiderweb extends AbstractVaadinChartExample {
         conf.getTitle().setX(-80);
 
         Pane pane = new Pane();
-        pane.setSize("80%");
+        pane.setSize(80, Unit.PERCENTAGE);
         conf.addPane(pane);
-        pane.setBackground(new Background[] {});
 
         XAxis axis = new XAxis();
         axis.setCategories("Sales", "Marketing", "Development",
@@ -43,7 +53,7 @@ public class Spiderweb extends AbstractVaadinChartExample {
         conf.getTooltip().setShared(true);
         conf.getTooltip().setValuePrefix("$");
 
-        conf.getLegend().setHorizontalAlign(HorizontalAlign.RIGHT);
+        conf.getLegend().setAlign(HorizontalAlign.RIGHT);
         conf.getLegend().setVerticalAlign(VerticalAlign.TOP);
         conf.getLegend().setY(100);
         conf.getLegend().setLayout(LayoutDirection.VERTICAL);

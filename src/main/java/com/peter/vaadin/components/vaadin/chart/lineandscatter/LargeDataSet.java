@@ -1,25 +1,25 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.DataSeries;
-import com.vaadin.addon.charts.model.DataSeriesItem;
-import com.vaadin.addon.charts.model.Marker;
-import com.vaadin.addon.charts.model.PlotOptionsLine;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.ui.Component;
+
 public class LargeDataSet extends AbstractVaadinChartExample {
 
-    private int ROUNDS = 4; // one round produces bit more than thousand data
-                            // points
+    // one round produces bit more than thousand data
+    private int ROUNDS = 4;
 
     @Override
     public String getDescription() {
-        return "Highcharts rendering engine can survive large data sets. "
+        return "Vaadin Charts rendering engine can survive large data sets. "
                 + "Especially if items have just values and no custom options. In this test "
                 + (ROUNDS * TimeSeriesZoomable.USD_TO_EUR_EXCHANGE_RATES.length)
                 + "data points are rendered.";
@@ -34,6 +34,10 @@ public class LargeDataSet extends AbstractVaadinChartExample {
         Chart chart = new Chart();
 
         chart.getConfiguration().setTitle("Large data set");
+
+        // Force zoom and enable scrollbar
+        chart.getConfiguration().getxAxis().setMin(5000);
+        chart.getConfiguration().getScrollbar().setEnabled(true);
 
         DataSeries series = new DataSeries();
         Number[] data = TimeSeriesZoomable.USD_TO_EUR_EXCHANGE_RATES;
@@ -96,10 +100,10 @@ public class LargeDataSet extends AbstractVaadinChartExample {
         /*
          * If developers need to use large data sets and point specific
          * settings, they can override the default turbo threshold. Here we set
-         * it to 200000 (default 1000). Turbo threshold is Higcharts related
-         * configuration that works as a "sanity threshold" so that old browsers
-         * wont drop to their knees under load. Without this Highcharts might
-         * not render chart if data items has e.g. name set.
+         * it to 200000 (default 1000). Turbo threshold is configuration that
+         * works as a "sanity threshold" so that old browsers wont drop to their
+         * knees under load. Without this Vaadin Charts might not render chart
+         * if data items have e.g. name set.
          */
         plotOptionsLine.setTurboThreshold(200000);
 
@@ -110,7 +114,7 @@ public class LargeDataSet extends AbstractVaadinChartExample {
 
     /**
      * An example how dataset can be reduced simply on the server side.
-     * 
+     *
      * <p>
      * Using more datapoints than there are pixels on the devices makes usually
      * no sense. Excess data just consumes bandwidth and client side CPU. This
@@ -119,7 +123,7 @@ public class LargeDataSet extends AbstractVaadinChartExample {
      * through this method, you'll see that visually the chart don't change
      * much, but the amount of data and with huge amounts also the rendering
      * time drops dramatically.
-     * 
+     *
      * @param series
      *            the series to be reduced
      * @param pixels
@@ -161,7 +165,7 @@ public class LargeDataSet extends AbstractVaadinChartExample {
 
     /**
      * Reduce data series with bit more sophisticated method.
-     * 
+     *
      * @param series
      *            with x y data pairs
      * @param pixels
@@ -204,9 +208,9 @@ public class LargeDataSet extends AbstractVaadinChartExample {
     }
 
     /**
-     * 
+     *
      * @see http://en.wikipedia.org/wiki/Ramer–Douglas–Peucker_algorithm
-     * 
+     *
      * @param points
      * @param epsilon
      * @param xyRatio

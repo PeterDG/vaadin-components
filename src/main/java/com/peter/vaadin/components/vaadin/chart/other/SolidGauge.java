@@ -1,13 +1,22 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.YAxis.Stop;
-import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.util.Random;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Background;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Pane;
+import com.vaadin.addon.charts.model.PlotOptionsSolidgauge;
+import com.vaadin.addon.charts.model.SeriesTooltip;
+import com.vaadin.addon.charts.model.Stop;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.ui.Component;
 
 public class SolidGauge extends AbstractVaadinChartExample {
 
@@ -19,7 +28,7 @@ public class SolidGauge extends AbstractVaadinChartExample {
     @Override
     protected Component getChart() {
         final Chart chart = new Chart();
-        chart.setWidth("500px");
+        chart.setWidth(500, Unit.PIXELS);
 
         final Configuration configuration = chart.getConfiguration();
         configuration.getChart().setType(ChartType.SOLIDGAUGE);
@@ -27,7 +36,7 @@ public class SolidGauge extends AbstractVaadinChartExample {
         configuration.getTitle().setText("Speed");
 
         Pane pane = new Pane();
-        pane.setCenterXY("50%", "85%");
+        pane.setCenter("50%", "85%");
         pane.setSize("140%");
         pane.setStartAngle(-90);
         pane.setEndAngle(90);
@@ -43,7 +52,6 @@ public class SolidGauge extends AbstractVaadinChartExample {
         bkg.setBorderWidth(0);
         pane.setBackground(bkg);
 
-
         YAxis yaxis = configuration.getyAxis();
         yaxis.setLineWidth(0);
         yaxis.setTickInterval(200);
@@ -52,21 +60,22 @@ public class SolidGauge extends AbstractVaadinChartExample {
         yaxis.setMax(200);
         yaxis.setTitle("");
         yaxis.getTitle().setY(-70);
+        yaxis.setLabels(new Labels());
         yaxis.getLabels().setY(16);
         Stop stop1 = new Stop(0.1f, SolidColor.GREEN);
         Stop stop2 = new Stop(0.5f, SolidColor.YELLOW);
         Stop stop3 = new Stop(0.9f, SolidColor.RED);
         yaxis.setStops(stop1, stop2, stop3);
 
-        PlotOptionsSolidGauge plotOptions = new PlotOptionsSolidGauge();
+        PlotOptionsSolidgauge plotOptions = new PlotOptionsSolidgauge();
+        plotOptions.setTooltip(new SeriesTooltip());
         plotOptions.getTooltip().setValueSuffix(" km/h");
-        Labels labels = new Labels();
+        DataLabels labels = new DataLabels();
         labels.setY(5);
         labels.setBorderWidth(0);
         labels.setUseHTML(true);
-        labels.setFormat(
-                "<div style=\"text-align:center\"><span style=\"font-size:25px;\">{y}</span><br/>" +
-                "                       <span style=\"font-size:12pxg\">km/h</span></div>");
+        labels.setFormat("<div style=\"text-align:center\"><span style=\"font-size:25px;\">{y}</span><br/>"
+                + "                       <span style=\"font-size:12pxg\">km/h</span></div>");
         plotOptions.setDataLabels(labels);
         configuration.setPlotOptions(plotOptions);
 

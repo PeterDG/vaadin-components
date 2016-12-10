@@ -1,9 +1,14 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.DataSeriesItem3d;
+import com.vaadin.addon.charts.model.PlotOptionsBubble;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -40,8 +45,8 @@ public class BubbleChartMaxSizePercentage extends AbstractVaadinChartExample {
 
         PlotOptionsBubble opts = new PlotOptionsBubble();
         opts.setNegativeColor(getThemeColors()[3]);
-        opts.setMaxSizeAsPercentage(50);
-        opts.setMinSize(3);
+        opts.setMaxSize(50, Unit.PERCENTAGE);
+        opts.setMinSize("3");
 
         conf.setPlotOptions(opts);
 

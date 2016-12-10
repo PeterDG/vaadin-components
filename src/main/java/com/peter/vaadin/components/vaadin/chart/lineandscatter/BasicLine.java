@@ -1,8 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 public class BasicLine extends AbstractVaadinChartExample {
@@ -29,10 +38,10 @@ public class BasicLine extends AbstractVaadinChartExample {
         configuration.getxAxis().setCategories("Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-        Axis yAxis = configuration.getyAxis();
+        YAxis yAxis = configuration.getyAxis();
         yAxis.setMin(-5d);
-        yAxis.setTitle(new Title("Temperature (°C)"));
-        yAxis.getTitle().setVerticalAlign(VerticalAlign.HIGH);
+        yAxis.setTitle(new AxisTitle("Temperature (°C)"));
+        yAxis.getTitle().setAlign(VerticalAlign.MIDDLE);
 
         configuration
                 .getTooltip()
@@ -40,12 +49,12 @@ public class BasicLine extends AbstractVaadinChartExample {
                         "'<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C'");
 
         PlotOptionsLine plotOptions = new PlotOptionsLine();
-        plotOptions.setDataLabels(new Labels(true));
+        plotOptions.getDataLabels().setEnabled(true);
         configuration.setPlotOptions(plotOptions);
 
         Legend legend = configuration.getLegend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.RIGHT);
+        legend.setAlign(HorizontalAlign.RIGHT);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(-10d);
         legend.setY(100d);

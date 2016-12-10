@@ -1,8 +1,22 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Pane;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PointPlacement;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.TickmarkPlacement;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -26,10 +40,9 @@ public class WindRose extends AbstractVaadinChartExample {
         Pane pane = new Pane();
         pane.setSize("85%");
         conf.addPane(pane);
-        pane.setBackground(new Background[] {});
 
         conf.getLegend().setReversed(false);
-        conf.getLegend().setHorizontalAlign(HorizontalAlign.RIGHT);
+        conf.getLegend().setAlign(HorizontalAlign.RIGHT);
         conf.getLegend().setVerticalAlign(VerticalAlign.TOP);
         conf.getLegend().setY(100);
         conf.getLegend().setLayout(LayoutDirection.VERTICAL);
@@ -39,18 +52,20 @@ public class WindRose extends AbstractVaadinChartExample {
                 "6-8 m/s", "8-10 m/s", "> 10 m/s");
         axis.setTickmarkPlacement(TickmarkPlacement.ON);
 
-        YAxis yaxs = new YAxis();
-        yaxs.setMin(0);
-        yaxs.setEndOnTick(false);
-        yaxs.setShowLastLabel(true);
-        yaxs.setTitle("Frequency (%)");
-        yaxs.getLabels().setFormatter("function() {return this.value + '%';}");
+        YAxis yAxis = new YAxis();
+        yAxis.setMin(0);
+        yAxis.setEndOnTick(false);
+        yAxis.setShowLastLabel(true);
+        yAxis.setTitle(new AxisTitle("Frequency (%)"));
+        Labels labels = new Labels();
+        labels.setFormatter("function() {return this.value + '%';}");
+        yAxis.setLabels(labels);
         conf.addxAxis(axis);
-        conf.addyAxis(yaxs);
+        conf.addyAxis(yAxis);
 
         conf.getTooltip().setValueSuffix("%");
 
-        PlotOptionsSeries series = new PlotOptionsSeries();
+        PlotOptionsColumn series = new PlotOptionsColumn();
         series.setStacking(Stacking.NORMAL);
         series.setShadow(false);
         series.setGroupPadding(0);

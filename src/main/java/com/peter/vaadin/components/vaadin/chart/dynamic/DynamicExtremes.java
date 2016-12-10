@@ -1,9 +1,19 @@
 package com.peter.vaadin.components.vaadin.chart.dynamic;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.data.Property;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.data.Property;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.VerticalLayout;
@@ -27,11 +37,11 @@ public class DynamicExtremes extends AbstractVaadinChartExample {
         configuration.getxAxis().setCategories("Jan", "Feb", "Mar", "Apr",
                 "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 
-        Axis yAxis = configuration.getyAxis();
+        YAxis yAxis = configuration.getyAxis();
         yAxis.setMin(-10d);
         yAxis.setMax(30d);
-        yAxis.setTitle(new Title("Temperature (°C)"));
-        yAxis.getTitle().setVerticalAlign(VerticalAlign.HIGH);
+        yAxis.setTitle(new AxisTitle("Temperature (°C)"));
+        yAxis.getTitle().setAlign(VerticalAlign.HIGH);
 
         configuration
                 .getTooltip()
@@ -39,12 +49,12 @@ public class DynamicExtremes extends AbstractVaadinChartExample {
                         "'<b>'+ this.series.name +'</b><br/>'+this.x +': '+ this.y +'°C'");
 
         PlotOptionsLine plotOptions = new PlotOptionsLine();
-        plotOptions.setDataLabels(new Labels(true));
+        plotOptions.setDataLabels(new DataLabels(true));
         configuration.setPlotOptions(plotOptions);
 
         Legend legend = configuration.getLegend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.RIGHT);
+        legend.setAlign(HorizontalAlign.RIGHT);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(-10d);
         legend.setY(100d);
@@ -88,12 +98,10 @@ public class DynamicExtremes extends AbstractVaadinChartExample {
                     chart.getConfiguration().getyAxes().getAxis(0)
                             .setExtremes(-10, 30);
                 }
-                chart.markAsDirty();
             }
         });
 
         VerticalLayout layout = new VerticalLayout(chart, extremes);
         return layout;
     }
-
 }

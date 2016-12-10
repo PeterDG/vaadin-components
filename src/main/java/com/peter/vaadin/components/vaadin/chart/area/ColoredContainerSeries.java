@@ -1,11 +1,17 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
-import com.vaadin.data.util.BeanItemContainer;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ContainerDataSeries;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
+import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.ui.Component;
 
 @SkipFromDemo
@@ -29,6 +35,7 @@ public class ColoredContainerSeries extends AbstractVaadinChartExample {
         }
     }
 
+    @Override
     protected Component getChart() {
         Chart chart = new Chart(ChartType.AREA);
 

@@ -1,8 +1,8 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.Exporting;
 import com.peter.vaadin.components.vaadin.chart.columnandbar.DualAxesLineAndColumn;
+import com.vaadin.addon.charts.model.Exporting;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
@@ -26,17 +26,15 @@ public class ExportingExample extends DualAxesLineAndColumn {
     protected Component getChart() {
         VerticalLayout verticalLayout = new VerticalLayout();
         verticalLayout.setSpacing(true);
-        verticalLayout.addComponent(new Label(getDescription(), ContentMode.HTML));
+        verticalLayout.addComponent(new Label(getDescription(),
+                ContentMode.HTML));
         Chart chart = (Chart) super.getChart();
         // Enabling exporting adds a button to UI via users can download the
         // chart e.g. for printing
         Exporting exporting = new Exporting(true);
 
         // One can customize the filename
-        exporting.setFilename("mychartfile.pdf");
-
-        // and choose whether to post raster images to exporting server
-        exporting.setEnableImages(true);
+        exporting.setFilename("mychartfile");
 
         // Exporting is by default done on highcharts public servers, but you
         // can also use your own server

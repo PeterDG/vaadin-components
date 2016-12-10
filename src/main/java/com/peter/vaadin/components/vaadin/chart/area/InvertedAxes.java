@@ -1,8 +1,20 @@
 package com.peter.vaadin.components.vaadin.chart.area;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.HorizontalAlign;
+import com.vaadin.addon.charts.model.LayoutDirection;
+import com.vaadin.addon.charts.model.Legend;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.VerticalAlign;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -29,19 +41,19 @@ public class InvertedAxes extends AbstractVaadinChartExample {
         conf.addxAxis(xAxis);
 
         YAxis yAxis = new YAxis();
-        yAxis.setTitle(new Title("Number of units"));
+        yAxis.setTitle(new AxisTitle("Number of units"));
         yAxis.setMin(0);
         conf.addyAxis(yAxis);
 
         Legend legend = new Legend();
         legend.setLayout(LayoutDirection.VERTICAL);
-        legend.setHorizontalAlign(HorizontalAlign.LEFT);
+        legend.setAlign(HorizontalAlign.LEFT);
         legend.setFloating(true);
         legend.setVerticalAlign(VerticalAlign.TOP);
         legend.setX(-150);
         legend.setY(100);
         legend.setBorderWidth(1);
-        legend.setBackgroundColor("#ffffff");
+        legend.setBackgroundColor(new SolidColor("#ffffff"));
         conf.setLegend(legend);
 
         PlotOptionsArea plotOptions = new PlotOptionsArea();

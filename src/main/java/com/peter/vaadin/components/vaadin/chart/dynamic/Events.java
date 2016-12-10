@@ -3,10 +3,10 @@ package com.peter.vaadin.components.vaadin.chart.dynamic;
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.ChartClickEvent;
 import com.vaadin.addon.charts.ChartClickListener;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.addon.charts.model.ChartType;
 import com.vaadin.addon.charts.model.Configuration;
 import com.vaadin.addon.charts.model.ListSeries;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -43,6 +43,7 @@ public class Events extends AbstractVaadinChartExample {
         });
 
         return chart;
+
     }
 
 }

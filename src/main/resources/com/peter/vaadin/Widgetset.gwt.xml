@@ -6,8 +6,6 @@
 
     <inherits name="com.peter.vaadin.components.others.applet.Widgetset" />
 
-    <inherits name="com.vaadin.addon.timeline.gwt.TimelineWidgetSet" />
-
     <inherits name="com.peter.vaadin.components.others.mycomponent.Widgetset" />
 
     <inherits name="com.vaadin.tapio.googlemaps.Widgetset" />

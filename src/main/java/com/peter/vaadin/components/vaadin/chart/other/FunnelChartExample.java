@@ -1,8 +1,12 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabelsFunnel;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsFunnel;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -30,14 +34,13 @@ public class FunnelChartExample extends AbstractVaadinChartExample {
         conf.getLegend().setEnabled(false);
 
         PlotOptionsFunnel options = new PlotOptionsFunnel();
-        options.setNeckWidthPercentage(30);
-        // options.setNeckWidth(20); // in pixels
-        options.setNeckHeightPercentage(30);
-        // options.setNeckHeight(100); // in pixels
+        options.setReversed(false);
+        options.setNeckWidth("30%");
+        options.setNeckHeight("30%");
 
-        options.setWidthAsPercentage(70);
+        options.setWidth("70%");
 
-        Labels dataLabels = new Labels();
+        DataLabelsFunnel dataLabels = new DataLabelsFunnel();
         dataLabels.setFormat("<b>{point.name}</b> ({point.y:,.0f})");
         options.setDataLabels(dataLabels);
 

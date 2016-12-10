@@ -1,13 +1,23 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.Background;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotBand;
+import com.vaadin.addon.charts.model.PlotOptionsGauge;
+import com.vaadin.addon.charts.model.SeriesTooltip;
+import com.vaadin.addon.charts.model.TickPosition;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
-
-import java.util.Random;
 
 public class AngularGauge extends AbstractVaadinChartExample {
 
@@ -59,7 +69,7 @@ public class AngularGauge extends AbstractVaadinChartExample {
         configuration.getPane().setBackground(background);
 
         YAxis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("km/h"));
+        yAxis.setTitle(new AxisTitle("km/h"));
         yAxis.setMin(0);
         yAxis.setMax(200);
         yAxis.setMinorTickInterval("auto");
@@ -74,8 +84,10 @@ public class AngularGauge extends AbstractVaadinChartExample {
         yAxis.setTickLength(10);
         yAxis.setTickColor(new SolidColor("#666"));
 
-        yAxis.getLabels().setStep(2);
-        yAxis.getLabels().setRotationPerpendicular();
+        Labels labels = new Labels();
+        labels.setStep(2);
+        labels.setRotationPerpendicular();
+        yAxis.setLabels(labels);
 
         PlotBand[] plotBands = new PlotBand[3];
         plotBands[0] = new PlotBand(0, 120, new SolidColor("#55BF3B"));
@@ -85,6 +97,7 @@ public class AngularGauge extends AbstractVaadinChartExample {
 
         final ListSeries series = new ListSeries("Speed", 80);
         PlotOptionsGauge plotOptions = new PlotOptionsGauge();
+        plotOptions.setTooltip(new SeriesTooltip());
         plotOptions.getTooltip().setValueSuffix(" km/h");
         series.setPlotOptions(plotOptions);
         configuration.setSeries(series);

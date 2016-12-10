@@ -80,7 +80,7 @@ public class SparklineChart extends VerticalLayout {
         PlotOptionsLine opts = new PlotOptionsLine();
         opts.setAllowPointSelect(false);
         opts.setColor(color);
-        opts.setDataLabels(new Labels(false));
+        opts.setDataLabels(new DataLabels(false));
         opts.setLineWidth(1);
         opts.setShadow(false);
         opts.setDashStyle(DashStyle.SOLID);
@@ -98,7 +98,7 @@ public class SparklineChart extends VerticalLayout {
         xAxis.setTickWidth(0);
         xAxis.setLineWidth(0);
 
-        yAxis.setTitle(new Title(""));
+        yAxis.setTitle("");
         yAxis.setAlternateGridColor(transparent);
         yAxis.setLabels(new Labels(false));
         yAxis.setLineWidth(0);

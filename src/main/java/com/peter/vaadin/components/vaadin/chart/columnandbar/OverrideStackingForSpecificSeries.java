@@ -1,12 +1,23 @@
 package com.peter.vaadin.components.vaadin.chart.columnandbar;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.StackLabels;
+import com.vaadin.addon.charts.model.Stacking;
+import com.vaadin.addon.charts.model.Title;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.FontWeight;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.model.style.Style;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
 import com.vaadin.ui.Component;
 
 @SkipFromDemo
@@ -28,7 +39,7 @@ public class OverrideStackingForSpecificSeries extends
 
         YAxis yAxis = new YAxis();
         yAxis.setMin(0);
-        yAxis.setTitle(new Title("Total fruit consumption"));
+        yAxis.setTitle(new AxisTitle("Total fruit consumption"));
         StackLabels sLabels = new StackLabels(true);
         Style slStyle = new Style();
         slStyle.setFontWeight(FontWeight.BOLD);
@@ -44,7 +55,7 @@ public class OverrideStackingForSpecificSeries extends
 
         PlotOptionsColumn plotOptions = new PlotOptionsColumn();
         plotOptions.setStacking(Stacking.NORMAL);
-        Labels labels = new Labels();
+        DataLabels labels = new DataLabels();
         labels.setEnabled(true);
         labels.setColor(new SolidColor("white"));
         plotOptions.setDataLabels(labels);

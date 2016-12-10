@@ -1,13 +1,23 @@
 package com.peter.vaadin.components.vaadin.chart.combinations;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.Color;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Hover;
+import com.vaadin.addon.charts.model.ListSeries;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsLine;
+import com.vaadin.addon.charts.model.PlotOptionsScatter;
+import com.vaadin.addon.charts.model.States;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.Color;
+import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
 public class ScatterWithRegressionLine extends AbstractVaadinChartExample {
@@ -49,9 +59,11 @@ public class ScatterWithRegressionLine extends AbstractVaadinChartExample {
         plotOptions.setMarker(new Marker(true));
         plotOptions.setEnableMouseTracking(true);
 
-        State hover = new State();
+        Hover hover = new Hover();
         hover.setLineWidth(0);
-        plotOptions.setStates(new States(hover));
+        States states = new States();
+        states.setHover(hover);
+        plotOptions.setStates(states);
 
         conf.addSeries(series);
 

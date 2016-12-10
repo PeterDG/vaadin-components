@@ -1,9 +1,16 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Crosshair;
+import com.vaadin.addon.charts.model.RangeSeries;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
+
+import static com.vaadin.addon.charts.model.AxisType.DATETIME;
 
 @SuppressWarnings("serial")
 public class AreaRange extends AbstractVaadinChartExample {
@@ -15,17 +22,18 @@ public class AreaRange extends AbstractVaadinChartExample {
 
     @Override
     protected Component getChart() {
+
         Chart chart = new Chart(ChartType.AREARANGE);
 
         Configuration conf = chart.getConfiguration();
 
         conf.setTitle("Temperature variation by day");
 
-        conf.addxAxis(new XAxis());
+        conf.getxAxis().setType(DATETIME);
+        conf.getxAxis().setCrosshair(new Crosshair());
         conf.addyAxis(new YAxis());
 
         Tooltip tooltip = new Tooltip();
-        tooltip.setCrosshairs(true);
         tooltip.setShared(true);
         tooltip.setValueSuffix("°C");
         conf.setTooltip(tooltip);
@@ -37,6 +45,7 @@ public class AreaRange extends AbstractVaadinChartExample {
         chart.drawChart(conf);
 
         return chart;
+
     }
 
     private Number[][] getRawData() {

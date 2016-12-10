@@ -3,8 +3,14 @@ package com.peter.vaadin.components.vaadin.chart.pie;
 import com.vaadin.addon.charts.Chart;
 import com.vaadin.addon.charts.LegendItemClickEvent;
 import com.vaadin.addon.charts.LegendItemClickListener;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Cursor;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
+import com.vaadin.addon.charts.model.Tooltip;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Notification;
 
@@ -33,8 +39,6 @@ public class PieWithLegend extends AbstractVaadinChartExample {
         plotOptions.setAllowPointSelect(true);
         plotOptions.setCursor(Cursor.POINTER);
         plotOptions.setShowInLegend(true);
-        Labels dataLabels = new Labels();
-        dataLabels.setEnabled(true);
         conf.setPlotOptions(plotOptions);
 
         DataSeries series = new DataSeries();
@@ -56,8 +60,8 @@ public class PieWithLegend extends AbstractVaadinChartExample {
                         + " : "
                         + event.getSeriesItemIndex()
                         + " : "
-                        + ((DataSeries) event.getSeries())
-                        .get(event.getSeriesItemIndex()).getName());
+                        + ((DataSeries) event.getSeries()).get(
+                                event.getSeriesItemIndex()).getName());
             }
         });
 

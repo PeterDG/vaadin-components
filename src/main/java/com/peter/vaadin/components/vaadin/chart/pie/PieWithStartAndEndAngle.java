@@ -1,8 +1,14 @@
 package com.peter.vaadin.components.vaadin.chart.pie;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.Cursor;
+import com.vaadin.addon.charts.model.DataLabels;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsPie;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -25,7 +31,7 @@ public class PieWithStartAndEndAngle extends AbstractVaadinChartExample {
         plotOptions.setStartAngle(45);
         plotOptions.setEndAngle(180);
         plotOptions.setCursor(Cursor.POINTER);
-        Labels dataLabels = new Labels(true);
+        DataLabels dataLabels = new DataLabels(true);
         dataLabels
                 .setFormatter("'<b>'+ this.point.name +'</b>: '+ this.percentage +' %'");
         plotOptions.setDataLabels(dataLabels);

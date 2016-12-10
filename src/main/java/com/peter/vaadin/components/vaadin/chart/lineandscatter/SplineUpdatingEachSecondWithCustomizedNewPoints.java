@@ -1,13 +1,23 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
+import java.util.Random;
+
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.vaadin.addon.charts.model.style.SolidColor;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.peter.vaadin.components.vaadin.chart.SkipFromDemo;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotLine;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.ui.Component;
-
-import java.util.Random;
 
 @SkipFromDemo
 public class SplineUpdatingEachSecondWithCustomizedNewPoints extends
@@ -29,12 +39,12 @@ public class SplineUpdatingEachSecondWithCustomizedNewPoints extends
         configuration.getChart().setType(ChartType.SPLINE);
         configuration.getTitle().setText("Live random data");
 
-        Axis xAxis = configuration.getxAxis();
+        XAxis xAxis = configuration.getxAxis();
         xAxis.setType(AxisType.DATETIME);
         xAxis.setTickPixelInterval(150);
 
         YAxis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Value"));
+        yAxis.setTitle(new AxisTitle("Value"));
         yAxis.setPlotLines(new PlotLine(0, 1, new SolidColor("#808080")));
 
         configuration.getTooltip().setEnabled(false);

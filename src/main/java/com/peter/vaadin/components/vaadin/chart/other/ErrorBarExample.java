@@ -1,11 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.Labels;
+import com.vaadin.addon.charts.model.PlotOptionsColumn;
+import com.vaadin.addon.charts.model.PlotOptionsErrorbar;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.SeriesTooltip;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.addon.charts.model.ZoomType;
 import com.vaadin.addon.charts.model.style.Color;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.addon.charts.model.style.Style;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -33,23 +43,26 @@ public class ErrorBarExample extends AbstractVaadinChartExample {
 
         YAxis primaryAxis = conf.getyAxis();
 
-        Title title = new Title("Temperature");
+        AxisTitle title = new AxisTitle("Temperature");
         Style style = new Style();
         style.setColor(colors[0]);
         title.setStyle(style);
         primaryAxis.setTitle(title);
-
-        primaryAxis.getLabels().setFormatter("this.value + '°C'");
+        Labels labels = new Labels();
+        labels.setFormatter("this.value + '°C'");
+        primaryAxis.setLabels(labels);
 
         YAxis secondaryAxis = new YAxis();
-        conf.getyAxes().addAxis(secondaryAxis);
-        title = new Title("Rainfall");
+        conf.addyAxis(secondaryAxis);
+        title = new AxisTitle("Rainfall");
         secondaryAxis.setTitle(title);
         style = new Style();
         style.setColor(colors[1]);
         title.setStyle(style);
-        secondaryAxis.getLabels().setFormatter("this.value + ' mm'");
-        secondaryAxis.getLabels().setStyle(style);
+        labels = new Labels();
+        labels.setFormatter("this.value + ' mm'");
+        labels.setStyle(style);
+        secondaryAxis.setLabels(labels);
         secondaryAxis.setOpposite(true);
 
         conf.getTooltip().setShared(true);
@@ -58,7 +71,7 @@ public class ErrorBarExample extends AbstractVaadinChartExample {
 
         PlotOptionsColumn column = new PlotOptionsColumn();
         column.setColor(colors[1]);
-        Tooltip tooltip = new Tooltip();
+        SeriesTooltip tooltip = new SeriesTooltip();
         tooltip.setPointFormat("<span style='font-weight: bold; color: {series.color}'>{series.name}</span>: <b>{point.y:.1f} mm</b> ");
         column.setTooltip(tooltip);
         rainfall.setPlotOptions(column);
@@ -68,8 +81,8 @@ public class ErrorBarExample extends AbstractVaadinChartExample {
         DataSeries rainfallError = new DataSeries("Rainfall");
         conf.addSeries(rainfallError);
         rainfallError.setyAxis(secondaryAxis);
-        PlotOptionsErrorBar rainErrorOptions = new PlotOptionsErrorBar();
-        tooltip = new Tooltip();
+        PlotOptionsErrorbar rainErrorOptions = new PlotOptionsErrorbar();
+        tooltip = new SeriesTooltip();
         tooltip.setPointFormat("(error range: {point.low}-{point.high} mm)<br/>");
         rainErrorOptions.setTooltip(tooltip);
         rainfallError.setPlotOptions(rainErrorOptions);
@@ -78,18 +91,18 @@ public class ErrorBarExample extends AbstractVaadinChartExample {
         conf.addSeries(temperature);
         PlotOptionsSpline tempOptions = new PlotOptionsSpline();
         tempOptions.setColor(colors[0]);
-        tooltip = new Tooltip();
+        tooltip = new SeriesTooltip();
         tooltip.setPointFormat("<span style='font-weight: bold; color: {series.color}'>{series.name}</span>: <b>{point.y:.1f}°C");
         tempOptions.setTooltip(tooltip);
         temperature.setPlotOptions(tempOptions);
 
         DataSeries temperatureErrors = new DataSeries("Temperature error");
         conf.addSeries(temperatureErrors);
-        PlotOptionsErrorBar tempErrorOptions = new PlotOptionsErrorBar();
+        PlotOptionsErrorbar tempErrorOptions = new PlotOptionsErrorbar();
         SolidColor green = new SolidColor("green");
         tempErrorOptions.setStemColor(green);
         tempErrorOptions.setWhiskerColor(green);
-        tooltip = new Tooltip();
+        tooltip = new SeriesTooltip();
         tooltip.setPointFormat("(error range: {point.low}-{point.high}°C)<br/>");
         tempErrorOptions.setTooltip(tooltip);
         temperatureErrors.setPlotOptions(tempErrorOptions);

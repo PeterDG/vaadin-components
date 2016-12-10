@@ -1,8 +1,16 @@
 package com.peter.vaadin.components.vaadin.chart.other;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
 import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataLabelsRange;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.PlotOptionsColumnrange;
+import com.vaadin.addon.charts.model.Tooltip;
+import com.vaadin.addon.charts.model.XAxis;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.ui.Component;
 
 @SuppressWarnings("serial")
@@ -35,8 +43,8 @@ public class ColumnRange extends AbstractVaadinChartExample {
         tooltip.setValueSuffix("°C");
         conf.setTooltip(tooltip);
 
-        PlotOptionsColumnRange columnRange = new PlotOptionsColumnRange();
-        columnRange.setDataLabels(new Labels(true));
+        PlotOptionsColumnrange columnRange = new PlotOptionsColumnrange();
+        columnRange.setDataLabels(new DataLabelsRange(true));
         columnRange.getDataLabels().setFormatter(
                 "function() {return this.y + '°C';}");
         conf.setPlotOptions(columnRange);

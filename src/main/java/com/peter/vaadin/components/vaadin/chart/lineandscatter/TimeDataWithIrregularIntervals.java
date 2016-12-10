@@ -1,15 +1,23 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
-import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
-import com.vaadin.ui.Component;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+
+import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.AxisType;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.DataSeries;
+import com.vaadin.addon.charts.model.DataSeriesItem;
+import com.vaadin.addon.charts.model.DateTimeLabelFormats;
+import com.vaadin.addon.charts.model.PlotOptionsSpline;
+import com.vaadin.addon.charts.model.YAxis;
+import com.vaadin.ui.Component;
 
 public class TimeDataWithIrregularIntervals extends AbstractVaadinChartExample {
 
@@ -38,8 +46,8 @@ public class TimeDataWithIrregularIntervals extends AbstractVaadinChartExample {
         configuration.getxAxis().setDateTimeLabelFormats(
                 new DateTimeLabelFormats("%e. %b", "%b"));
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Snow depth (m)"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Snow depth (m)"));
         yAxis.setMin(0);
 
         configuration
@@ -135,7 +143,7 @@ public class TimeDataWithIrregularIntervals extends AbstractVaadinChartExample {
 
     /**
      * Helper method to convert Date string YYYY,MM,dd to Date
-     * 
+     *
      * @param dateString
      * @return
      */

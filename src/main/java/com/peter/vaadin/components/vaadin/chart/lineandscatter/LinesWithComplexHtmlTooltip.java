@@ -1,10 +1,10 @@
 package com.peter.vaadin.components.vaadin.chart.lineandscatter;
 
 import com.vaadin.addon.charts.Chart;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.addon.charts.model.Configuration;
 import com.vaadin.addon.charts.model.ListSeries;
 import com.vaadin.addon.charts.model.Tooltip;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.Component;
 
 public class LinesWithComplexHtmlTooltip extends AbstractVaadinChartExample {

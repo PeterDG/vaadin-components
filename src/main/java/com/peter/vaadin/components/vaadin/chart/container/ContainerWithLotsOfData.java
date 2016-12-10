@@ -1,13 +1,21 @@
 package com.peter.vaadin.components.vaadin.chart.container;
 
 import com.vaadin.addon.charts.Chart;
-import com.vaadin.addon.charts.model.*;
+import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
+import com.vaadin.addon.charts.model.AxisTitle;
+import com.vaadin.addon.charts.model.ChartType;
+import com.vaadin.addon.charts.model.Configuration;
+import com.vaadin.addon.charts.model.ContainerDataSeries;
+import com.vaadin.addon.charts.model.Hover;
+import com.vaadin.addon.charts.model.Marker;
+import com.vaadin.addon.charts.model.PlotOptionsArea;
+import com.vaadin.addon.charts.model.Series;
+import com.vaadin.addon.charts.model.YAxis;
 import com.vaadin.addon.charts.model.style.GradientColor;
 import com.vaadin.addon.charts.model.style.SolidColor;
 import com.vaadin.data.Container;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.IndexedContainer;
-import com.peter.vaadin.components.vaadin.chart.AbstractVaadinChartExample;
 import com.vaadin.ui.AbstractSelect.ItemCaptionMode;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.HorizontalLayout;
@@ -74,8 +82,8 @@ public class ContainerWithLotsOfData extends AbstractVaadinChartExample {
 
         configuration.getLegend().setEnabled(false);
 
-        Axis yAxis = configuration.getyAxis();
-        yAxis.setTitle(new Title("Exchange rate"));
+        YAxis yAxis = configuration.getyAxis();
+        yAxis.setTitle(new AxisTitle("Exchange rate"));
         yAxis.setMin(0.6);
         yAxis.setStartOnTick(false);
         yAxis.setShowFirstLabel(false);
@@ -92,20 +100,14 @@ public class ContainerWithLotsOfData extends AbstractVaadinChartExample {
         plotOptions.setLineWidth(1);
         plotOptions.setShadow(false);
 
-        Marker marker = new Marker();
+        Marker marker = plotOptions.getMarker();
         marker.setEnabled(false);
-        State hoverState = new State(true);
+        Hover hoverState = new Hover(true);
         hoverState.setRadius(5);
-        MarkerStates markerStates = new MarkerStates(hoverState);
-        marker.setStates(markerStates);
-
-        State hoverStateForArea = new State(true);
         hoverState.setLineWidth(1);
+        marker.getStates().setHover(hoverState);
 
-        States states = new States();
-        states.setHover(hoverStateForArea);
-        plotOptions.setStates(states);
-        plotOptions.setMarker(marker);
+        plotOptions.getStates().setHover(new Hover(true));
         plotOptions.setShadow(false);
         configuration.setPlotOptions(plotOptions);
 

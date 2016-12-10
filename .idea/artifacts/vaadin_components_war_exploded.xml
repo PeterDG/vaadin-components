@@ -73,12 +73,28 @@
           <element id="library" level="project" name="Maven: com.vaadin.tapio:googlemaps:1.0.2" />
           <element id="library" level="project" name="Maven: com.github.branflake2267:gwt-maps-api:3.10.0-alpha-7" />
           <element id="library" level="project" name="Maven: com.google.gwt.google-apis:gwt-ajaxloader:1.1.0" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-server:7.7.6" />
+          <element id="library" level="project" name="Maven: com.vaadin.addon:vaadin-charts:3.2.0" />
+          <element id="library" level="project" name="Maven: com.vaadin.addon:vaadin-charts-model:3.2.0" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-push:7.7.6" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-client-compiler:7.7.6" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-themes:7.7.6" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-shared:7.7.6" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.8.3" />
+          <element id="library" level="project" name="Maven: com.vaadin:vaadin-sass-compiler:0.9.13" />
+          <element id="library" level="project" name="Maven: com.vaadin.external.gwt:gwt-dev:2.7.0.vaadin4" />
+          <element id="library" level="project" name="Maven: com.vaadin.external.atmosphere:atmosphere-runtime:2.2.9.vaadin2" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.2.4" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.5.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.5.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.5.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/vaadin-components-1.0.0/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="vaadin-components/web/Web" />
+      <element id="artifact" artifact-name="vaadin-components:GWT" />
     </root>
   </artifact>
 </component>
