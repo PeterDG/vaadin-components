@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 
 import com.peter.vaadin.components.others.SubWindow;
 import com.peter.vaadin.components.others.mycomponent.MyComponent;
+import com.peter.vaadin.components.vaadin.chart.lineandscatter.UtcTimeDataAndTooltipDateFormat;
 import com.peter.vaadin.components.vaadin.chart.timeline.Candlestick;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -43,6 +44,8 @@ public class MyUI extends UI {
         });
         InlineTextEditor editor = new InlineTextEditor("It is a test");
         AreaSpline areaSpline=new AreaSpline();
+        Candlestick candlestick = new Candlestick();
+        UtcTimeDataAndTooltipDateFormat utcTimeDataAndTooltipDateFormat = new UtcTimeDataAndTooltipDateFormat();
         MapGoogle mapGoogle = new MapGoogle();
         AppletIntegrationSampleUI applet = new AppletIntegrationSampleUI();
         SubWindow subWindow =new SubWindow();
@@ -51,6 +54,8 @@ public class MyUI extends UI {
         layout.addComponent(button);
         layout.addComponent(editor);
         layout.addComponent(areaSpline);
+        layout.addComponent(candlestick);
+        layout.addComponent(utcTimeDataAndTooltipDateFormat);
         layout.addComponent(mapGoogle);
         layout.addComponent(applet);
         layout.addComponent(myComponent);
